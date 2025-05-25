@@ -11,8 +11,9 @@
     <div id="nav-placeholder"></div>
 
     <div class="container">
-        <h2>Principais Modelos de Linguagem de Grande Escala (LLMs) do Mercado</h2>
-        <p>Os Modelos de Linguagem de Grande Escala (LLMs) são o motor por trás da IA Generativa. Eles são treinados em vastas quantidades de dados textuais para entender e gerar linguagem humana de forma coerente e contextual. Conhecer os principais modelos disponíveis ajuda a entender suas capacidades e potenciais aplicações.</p>
+        <h2>Principais Modelos de Linguagem de Grande Escala (LLMs) e Ferramentas de Acesso</h2>
+        <p>Os Modelos de Linguagem de Grande Escala (LLMs) são o motor por trás da IA Generativa. Eles são treinados em vastas quantidades de dados textuais para entender e gerar linguagem humana de forma coerente e contextual. Conhecer os principais modelos disponíveis e as ferramentas que facilitam seu acesso ajuda a entender suas capacidades e potenciais aplicações.</p>
+        <p class="disclaimer"><em><strong>Nota:</strong> A ordem de apresentação dos modelos e ferramentas a seguir é aleatória e não representa um ranking de superioridade, tampouco uma indicação de qual é o mais adequado para uso institucional. A escolha da melhor ferramenta dependerá das necessidades específicas de cada tarefa e das políticas de segurança e privacidade adotadas.</em></p>
 
         <section>
             <h3>🤖 OpenAI - Série GPT (Generative Pre-trained Transformer)</h3>
@@ -21,7 +22,7 @@
                 <li><strong>Descrição:</strong> Desenvolvidos pela OpenAI, os modelos GPT são conhecidos por sua forte capacidade de geração de texto, compreensão de contexto, tradução, resumo e resposta a perguntas. O GPT-4 e suas variantes mais recentes (como o GPT-4o, que integra multimodalidade de forma mais nativa) demonstram raciocínio avançado e maior precisão.</li>
                 <li><strong>Janela de Contexto:</strong>
                     <ul>
-                        <li>GPT-3.5-turbo: Suporta até 16.385 tokens, com alguns modelos mais antigos limitados a 4.096 tokens.</li>
+                        <li>GPT-3.5-turbo: Suporta até 16.385 tokens.</li>
                         <li>GPT-4: Variações com 8.192 tokens, 32.768 tokens, e o GPT-4-turbo (incluindo GPT-4o) suporta até 128.000 tokens.</li>
                     </ul>
                 </li>
@@ -36,29 +37,30 @@
                 </li>
                 <li><strong>Como Acessar:</strong>
                     <ul>
-                        <li><strong>API da OpenAI:</strong> Acesso programático para integração em sistemas e aplicações.</li>
-                        <li><strong>ChatGPT:</strong> Interface de conversação para usuários finais (versões gratuitas e pagas com acesso a modelos mais avançados).</li>
-                        <li><strong>Azure OpenAI Service:</strong> Plataforma da Microsoft que oferece os modelos OpenAI com recursos adicionais de segurança, privacidade e conformidade para uso corporativo.</li>
+                        <li><strong>ChatGPT (Web e Aplicativos Móveis):</strong> Interface de conversação para usuários finais, com aplicativos disponíveis para download nas lojas de aplicativos (iOS e Android). Versões gratuitas e pagas com acesso a modelos mais avançados.</li>
+                        <li><strong>Microsoft Copilot:</strong> Assistente de IA da Microsoft integrado a diversos produtos (como Windows, Edge, Office 365) que utiliza modelos GPT, oferecendo uma forma prática de acesso, também com aplicativos móveis.</li>
+                        <li><strong>Azure OpenAI Service:</strong> Para uso corporativo, esta plataforma da Microsoft oferece os modelos OpenAI com recursos adicionais de segurança e privacidade, podendo ser a base para ferramentas internas customizadas.</li>
                     </ul>
                 </li>
-                <li><strong>Considerações:</strong> O acesso geralmente se dá por meio de APIs pagas. É crucial verificar as políticas de uso de dados, especialmente a opção de "opt-out" para não usar os dados enviados para retreinamento do modelo público, principalmente ao usar a API pública da OpenAI ou o ChatGPT. O Azure OpenAI Service oferece mais controles nesse sentido.</li>
+                <li><strong>Considerações:</strong> O acesso a versões mais avançadas ou com mais recursos geralmente envolve custos. É crucial verificar as políticas de uso de dados da ferramenta utilizada, especialmente a opção de "opt-out" para não usar os dados enviados para retreinamento do modelo público. Ferramentas corporativas como o Azure OpenAI Service geralmente oferecem mais controles nesse sentido.</li>
             </ul>
             <div class="example">
-                <p class="example-title">Exemplo de Uso (GPT-4o):</p>
+                <p class="example-title">Exemplo de Uso (GPT-4o via ChatGPT ou Copilot):</p>
                 <p><strong>Prompt:</strong> "Aja como um assessor jurídico. Elabore um parágrafo introdutório para um ofício ao Tribunal de Contas, solicitando informações sobre o andamento de uma auditoria específica (Processo TCE nº 123/2024), de forma técnica e respeitosa."</p>
             </div>
         </section>
 
         <section>
-            <h3>🚀 Google - Gemini (anteriormente LaMDA e PaLM)</h3>
+            <h3>🚀 Google - Família Gemini</h3>
             <ul>
-                <li><strong>Modelos Notáveis:</strong> Gemini 1.0 Pro, Gemini 1.5 Pro, Gemini Ultra (anunciado), Gemini Flash.</li>
+                <li><strong>Modelos Notáveis:</strong> Gemini Pro, Gemini 2.0 Pro, Gemini 2.0 Ultra, Gemini 2.0 Flash.</li>
                 <li><strong>Descrição:</strong> A família de modelos Gemini do Google é projetada para ser multimodal, compreendendo e gerando não apenas texto, mas também código, imagens, áudio e vídeo. São otimizados para uma ampla gama de tarefas, desde conversação até análises complexas.</li>
                 <li><strong>Janela de Contexto:</strong>
                     <ul>
-                        <li>Gemini 1.0 Pro: Tipicamente 32.000 tokens.</li>
-                        <li>Gemini 1.5 Pro: Suporta até 1 milhão de tokens (com janelas maiores em preview para casos específicos).</li>
-                        <li>Gemini Flash: Otimizado para velocidade, com janela de contexto também na faixa de 1 milhão de tokens.</li>
+                        <li>Gemini Pro: Tipicamente 32.000 tokens.</li>
+                        <li>Gemini 2.0 Pro: Suporta até 1 milhão de tokens (com janelas maiores em preview para casos específicos).</li>
+                        <li>Gemini 2.0 Flash: Otimizado para velocidade, com janela de contexto também na faixa de 1 milhão de tokens.</li>
+                        <li>Gemini 2.0 Ultra: Modelo mais capaz da família, com grande janela de contexto.</li>
                     </ul>
                 </li>
                 <li><strong>Como podem ser utilizados no MP:</strong>
@@ -71,17 +73,16 @@
                 </li>
                 <li><strong>Como Acessar:</strong>
                     <ul>
-                        <li><strong>Google AI Studio:</strong> Interface web para experimentação e desenvolvimento com modelos Gemini.</li>
-                        <li><strong>Vertex AI (Google Cloud Platform):</strong> Plataforma para desenvolvedores integrarem e customizarem modelos Gemini em aplicações, com foco em uso corporativo e MLOps.</li>
-                        <li><strong>Gemini (aplicativo e interface web):</strong> Interface de conversação para usuários finais (anteriormente Bard).</li>
-                        <li><strong>APIs do Google Cloud:</strong> Acesso programático aos modelos Gemini.</li>
+                        <li><strong>Gemini (Web e Aplicativos Móveis):</strong> Interface de conversação do Google para usuários finais (anteriormente Bard), com aplicativos disponíveis para download nas lojas de aplicativos (iOS e Android).</li>
+                        <li><strong>NotebookLM:</strong> Ferramenta de pesquisa e escrita do Google que utiliza modelos Gemini para ajudar a analisar e sintetizar informações a partir de documentos fornecidos pelo usuário. Ideal para trabalhar com fontes próprias (acessível via web).</li>
+                        <li>Integrado em produtos Google (Busca, Workspace, etc.) de forma progressiva.</li>
                     </ul>
                 </li>
-                <li><strong>Considerações:</strong> Assim como com outros modelos, é vital verificar as políticas de privacidade e segurança, especialmente em ambientes corporativos via Google Cloud.</li>
+                <li><strong>Considerações:</strong> Verifique as políticas de privacidade e segurança das ferramentas Google utilizadas. O NotebookLM, por exemplo, é projetado para manter os dados do usuário privados.</li>
             </ul>
             <div class="example">
-                <p class="example-title">Exemplo de Uso (Gemini 1.5 Pro):</p>
-                <p><strong>Prompt:</strong> "Analise o inteiro teor desta decisão judicial de 300 páginas (anonimizada) e identifique os principais argumentos da defesa e como foram rebatidos pelo juiz. [colar o texto ou fornecer via API]"</p>
+                <p class="example-title">Exemplo de Uso (Gemini 2.0 Pro via NotebookLM):</p>
+                <p><strong>Ação:</strong> "Faça upload de 5 minutas anonimizadas sobre o tema X no NotebookLM. Depois, peça: 'Compare os argumentos centrais utilizados nestas 5 minutas e identifique os 3 pontos em comum mais relevantes.'"</p>
             </div>
         </section>
 
@@ -89,7 +90,7 @@
             <h3>🦙 Meta - Llama (Large Language Model Meta AI)</h3>
             <ul>
                 <li><strong>Modelos Notáveis:</strong> Llama 2, Llama 3.</li>
-                <li><strong>Descrição:</strong> Desenvolvidos pela Meta, os modelos Llama são disponibilizados de forma mais aberta (open source para pesquisa e uso comercial sob certas condições), o que permite maior customização e a possibilidade de serem hospedados em infraestrutura própria. Têm demonstrado performance competitiva com outros grandes modelos.</li>
+                <li><strong>Descrição:</strong> Desenvolvidos pela Meta, os modelos Llama são disponibilizados de forma mais aberta, o que permite maior customização. Têm demonstrado performance competitiva com outros grandes modelos.</li>
                 <li><strong>Janela de Contexto:</strong>
                     <ul>
                         <li>Llama 2: Suporta até 4.096 tokens.</li>
@@ -98,23 +99,22 @@
                 </li>
                 <li><strong>Como podem ser utilizados no MP:</strong>
                     <ul>
-                        <li>Potencial para fine-tuning com dados jurídicos anonimizados do próprio MP para criar modelos especializados em tarefas internas (ex: classificação de documentos, auxílio na triagem de petições), desde que em ambiente controlado e seguro.</li>
-                        <li>Geração de texto e respostas a perguntas, similar a outros LLMs.</li>
-                        <li>Desenvolvimento de chatbots internos para consulta de informações não sigilosas.</li>
+                        <li>Geração de texto e respostas a perguntas, similar a outros LLMs, através de ferramentas que os integrem.</li>
+                        <li>Desenvolvimento de chatbots internos para consulta de informações não sigilosas (requer desenvolvimento técnico para implementação).</li>
                     </ul>
                 </li>
                 <li><strong>Como Acessar:</strong>
                     <ul>
-                        <li><strong>Download Direto:</strong> Os pesos dos modelos Llama (especialmente Llama 2 e Llama 3) estão disponíveis para download mediante aceitação dos termos de uso, permitindo hospedagem local ou em nuvem privada.</li>
-                        <li><strong>Plataformas de Nuvem:</strong> Muitos provedores de nuvem (AWS, Azure, Google Cloud, Hugging Face) oferecem acesso aos modelos Llama como modelos pré-treinados ou para fine-tuning.</li>
-                        <li><strong>Ferramentas e Bibliotecas:</strong> Diversas bibliotecas de código aberto facilitam a execução e o fine-tuning dos modelos Llama.</li>
+                        <li><strong>Meta AI:</strong> Assistente de IA da Meta integrado em aplicativos como WhatsApp, Instagram, Facebook e Messenger (disponíveis nas lojas de aplicativos), utilizando versões dos modelos Llama.</li>
+                        <li>Algumas ferramentas de terceiros e plataformas podem oferecer acesso a modelos Llama de forma simplificada.</li>
+                        <li>Para uso mais direto ou customizado (como fine-tuning), geralmente requer conhecimento técnico para configuração em infraestrutura própria ou em nuvem.</li>
                     </ul>
                 </li>
-                <li><strong>Considerações:</strong> A natureza mais aberta exige maior responsabilidade na implementação, segurança e garantia de uso ético. O fine-tuning e a hospedagem própria demandam expertise técnica e infraestrutura adequada. É crucial seguir os termos da licença.</li>
+                <li><strong>Considerações:</strong> A natureza mais aberta dos modelos Llama exige responsabilidade na implementação e uso ético, especialmente se utilizados fora de plataformas estabelecidas como o Meta AI.</li>
             </ul>
             <div class="example">
-                <p class="example-title">Exemplo de Uso (Llama 3):</p>
-                <p><strong>Prompt (após potencial fine-tuning):</strong> "Com base nos procedimentos internos do MP para instauração de Inquérito Civil, liste os documentos essenciais que devem compor a peça inicial para apurar [descrever um fato hipotético e anonimizado]."</p>
+                <p class="example-title">Exemplo de Uso (Llama 3 via Meta AI no WhatsApp):</p>
+                <p><strong>Prompt no Meta AI:</strong> "Explique de forma simples para um cidadão leigo quais são os principais direitos garantidos pela Lei Maria da Penha."</p>
             </div>
         </section>
 
@@ -139,28 +139,27 @@
                 </li>
                  <li><strong>Como Acessar:</strong>
                     <ul>
-                        <li><strong>API da Anthropic:</strong> Principal forma de acesso programático aos modelos Claude.</li>
-                        <li><strong>Plataformas de Nuvem:</strong> Disponível em algumas plataformas de nuvem, como Amazon Bedrock e Google Cloud Vertex AI.</li>
-                        <li><strong>Claude.ai:</strong> Interface de conversação para usuários (disponibilidade pode variar por região).</li>
+                        <li><strong>Claude.ai (Web e Aplicativos Móveis):</strong> Interface de conversação para usuários, com aplicativos disponíveis para download nas lojas de aplicativos (iOS e Android). Disponibilidade pode variar por região e pode ter planos gratuitos e pagos.</li>
+                        <li>Pode estar disponível através de plataformas parceiras ou integrado em outras ferramentas.</li>
                     </ul>
                 </li>
-                <li><strong>Considerações:</strong> A Anthropic enfatiza a segurança e o alinhamento ético. O acesso geralmente é via API. É importante avaliar as capacidades específicas de cada variante (Opus para tarefas complexas, Sonnet para equilíbrio entre performance e velocidade, Haiku para respostas rápidas).</li>
+                <li><strong>Considerações:</strong> A Anthropic enfatiza a segurança e o alinhamento ético. É importante avaliar as capacidades específicas de cada variante (Opus para tarefas complexas, Sonnet para equilíbrio entre performance e velocidade, Haiku para respostas rápidas) ao usar o Claude.ai.</li>
             </ul>
             <div class="example">
-                <p class="example-title">Exemplo de Uso (Claude 3 Opus):</p>
-                <p><strong>Prompt:</strong> "Analise o seguinte conjunto de cláusulas contratuais (anonimizadas) de um contrato de 150 páginas e identifique potenciais ambiguidades ou pontos que poderiam gerar litígio. Forneça uma breve justificativa para cada ponto identificado. [colar cláusulas ou fornecer via API]"</p>
+                <p class="example-title">Exemplo de Uso (Claude 3 Opus via Claude.ai):</p>
+                <p><strong>Prompt:</strong> "Analise o seguinte conjunto de cláusulas contratuais (anonimizadas) de um contrato de 150 páginas e identifique potenciais ambiguidades ou pontos que poderiam gerar litígio. Forneça uma breve justificativa para cada ponto identificado. [colar cláusulas]"</p>
             </div>
         </section>
 
         <section>
-            <h3>⚠️ Considerações Gerais ao Utilizar LLMs</h3>
+            <h3>⚠️ Considerações Gerais ao Utilizar LLMs e Ferramentas de IA</h3>
             <ul>
-                <li><strong>Revisão Humana Sempre:</strong> Nenhuma resposta de LLM deve ser utilizada em documentos oficiais ou para tomada de decisão sem uma rigorosa revisão e validação por um profissional qualificado.</li>
-                <li><strong>Privacidade e Confidencialidade:</strong> Nunca insira dados pessoais sensíveis, sigilosos ou informações de processos em segredo de justiça em prompts de IAs públicas ou que não garantam o opt-out de treinamento e a segurança adequada. Consulte as <a href="politicas-de-privacidade.html">Políticas de Privacidade</a>.</li>
+                <li><strong>Revisão Humana Sempre:</strong> Nenhuma resposta de IA deve ser utilizada em documentos oficiais ou para tomada de decisão sem uma rigorosa revisão e validação por um profissional qualificado.</li>
+                <li><strong>Privacidade e Confidencialidade:</strong> Nunca insira dados pessoais sensíveis, sigilosos ou informações de processos em segredo de justiça em prompts de IAs públicas ou ferramentas que não garantam o tratamento adequado e a privacidade dos dados. Consulte as <a href="politicas-de-privacidade.html">Políticas de Privacidade</a> de cada ferramenta.</li>
                 <li><strong>Alucinações e Imprecisões:</strong> LLMs podem gerar informações incorretas ou fictícias ("alucinações"). Verifique sempre fatos, citações legais e jurisprudências em fontes oficiais. Veja mais em <a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a> e <a href="cuidados-praticos.html">Cuidados Práticos</a>.</li>
-                <li><strong>Custos:</strong> O uso de APIs de LLMs geralmente é tarifado com base no volume de tokens processados (entrada e saída). Monitore o consumo.</li>
+                <li><strong>Custos:</strong> Muitas ferramentas que dão acesso a estes modelos podem ter custos de assinatura ou planos de uso. Verifique os termos de cada serviço.</li>
                 <li><strong>Janela de Contexto:</strong> Entenda o limite de tokens que o modelo pode processar por vez. Textos muito longos podem precisar ser divididos ou resumidos, embora modelos com janelas maiores estejam mitigando essa necessidade. Veja mais em <a href="conceitos-basicos-ia.html#janela-de-contexto">Janela de Contexto</a>.</li>
-                <li><strong>Evolução Rápida:</strong> Novos modelos e versões são lançados frequentemente. Mantenha-se atualizado sobre as capacidades e limitações dos modelos que utiliza.</li>
+                <li><strong>Evolução Rápida:</strong> Novos modelos e versões são lançados frequentemente. Mantenha-se atualizado sobre as capacidades e limitações dos modelos e ferramentas que utiliza.</li>
             </ul>
         </section>
 
