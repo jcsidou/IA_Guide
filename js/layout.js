@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error(`Falha ao carregar o componente ${url}:`, error));
     };
 
-    loadComponent('_header.html', 'header-placeholder');
-    loadComponent('_nav.html', 'nav-placeholder');
-    loadComponent('_footer.html', 'footer-placeholder');
+    loadComponent('header.html', 'header-placeholder');
+    loadComponent('nav.html', 'nav-placeholder');
+    loadComponent('footer.html', 'footer-placeholder');
 });
