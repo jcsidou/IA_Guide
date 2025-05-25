@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Técnicas de Prompt - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <h2>Melhores Técnicas para Construção de Prompts Avançados</h2>
+        <p>Além das <a href="como-construir-prompts.html">técnicas básicas de construção de prompts</a>, existem abordagens mais avançadas que podem aprimorar significativamente a qualidade, precisão e relevância das respostas geradas pela IA. Estas técnicas ajudam a guiar o modelo de forma mais eficaz, especialmente para tarefas complexas ou que exigem um raciocínio mais elaborado. Lembre-se sempre de adaptar os exemplos ao seu caso específico e de respeitar as <a href="politicas-de-privacidade.html">políticas de privacidade</a>.</p>
+
+        <section>
+            <h3>✅ 1. Prompt de Cadeia de Pensamento (Chain-of-Thought - CoT)</h3>
+            <p><strong>O que é:</strong> Esta técnica consiste em instruir o modelo a "pensar passo a passo" ou "explicar seu raciocínio" antes de chegar à resposta final. Ao detalhar as etapas intermediárias, o modelo tende a produzir resultados mais lógicos e precisos, especialmente para problemas que requerem múltiplas etapas de inferência.</p>
+            <p><strong>Por que usar no MP:</strong> Útil para analisar cenários jurídicos complexos, interpretar legislação de forma faseada, ou quando se deseja entender como a IA chegou a uma determinada conclusão ou sugestão, permitindo uma avaliação mais crítica do resultado.</p>
+            <div class="example">
+                <p class="example-title">Exemplo Prático (Análise de Admissibilidade de Recurso):</p>
+                <code>
+                    "Aja como um Analista Jurídico do MP.<br>
+                    Analise a seguinte situação hipotética e determine se o recurso de apelação é admissível. Explique seu raciocínio passo a passo antes de dar a conclusão final.<br><br>
+                    Situação: A sentença em um processo criminal por furto simples foi publicada há 20 dias corridos. O réu, intimado pessoalmente, manifestou interesse em recorrer há 15 dias. A petição de interposição do recurso, assinada por seu defensor constituído, foi protocolada hoje. Não houve feriados relevantes no período.<br><br>
+                    Raciocínio passo a passo:<br>
+                    1. Qual o prazo legal para interposição de apelação criminal?<br>
+                    2. Como se conta esse prazo (dias corridos ou úteis)?<br>
+                    3. A manifestação de interesse em recorrer interrompe ou suspende o prazo?<br>
+                    4. O protocolo da petição hoje está dentro do prazo legal, considerando a data da publicação da sentença e a forma de contagem?<br><br>
+                    Conclusão sobre a admissibilidade (Tempestividade): [Sua conclusão aqui]"
+                </code>
+                <p><strong>Resultado esperado:</strong> A IA primeiro responderá às perguntas intermediárias, detalhando o cálculo do prazo e as regras aplicáveis, para depois concluir sobre a tempestividade do recurso.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 2. Prompt com Geração de Conhecimento Prévio (Generated Knowledge Prompting)</h3>
+            <p><strong>O que é:</strong> Antes de pedir a resposta final para uma pergunta complexa, você solicita à IA que primeiro gere informações ou fatos relevantes sobre o tópico. Esse conhecimento gerado é então usado (implícita ou explicitamente) pela IA para formular a resposta principal, aumentando sua precisão e profundidade.</p>
+            <p><strong>Por que usar no MP:</strong> Útil quando se lida com temas que exigem conhecimento específico ou para garantir que a IA está partindo de premissas corretas antes de elaborar um argumento, um resumo ou uma análise.</p>
+            <div class="example">
+                <p class="example-title">Exemplo Prático (Elaboração de Tese para Alegações Finais):</p>
+                <code>
+                    "Aja como um Promotor de Justiça preparando alegações finais em um caso de improbidade administrativa.<br><br>
+                    Primeiro, liste os principais elementos que caracterizam o ato de improbidade administrativa previsto no Art. 10 da Lei nº 8.429/92 (lesão ao erário).<br><br>
+                    Com base nesses elementos, e considerando os seguintes fatos hipotéticos (Investigado X, gestor público, autorizou despesa Y sem licitação, causando prejuízo Z), elabore um parágrafo para as alegações finais sustentando a ocorrência do ato de improbidade."
+                </code>
+                <p><strong>Resultado esperado:</strong> A IA primeiro listará os requisitos legais do ato de improbidade e, em seguida, usará essa lista para construir o parágrafo solicitado, conectando os fatos aos elementos legais.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 3. Prompt "Do Menor para o Maior" (Least-to-Most Prompting)</h3>
+            <p><strong>O que é:</strong> Esta técnica envolve decompor um problema complexo em uma sequência de subproblemas mais simples. Você guia a IA para resolver cada subproblema em ordem, usando a solução de um como base para o próximo, até chegar à solução do problema original.</p>
+            <p><strong>Por que usar no MP:</strong> Ideal para tarefas multifacetadas, como a elaboração de uma minuta de portaria de instauração de inquérito civil, que envolve identificar o fato, o fundamento legal, as diligências iniciais, etc. Também útil para analisar a cadeia causal de eventos em um processo.</p>
+            <div class="example">
+                <p class="example-title">Exemplo Prático (Roteiro para Análise de Delação Premiada):</p>
+                <code>
+                    "Aja como um Procurador da República.<br>
+                    Vamos analisar a viabilidade de um acordo de colaboração premiada. Siga os seguintes passos:<br><br>
+                    1.  Descreva brevemente os fatos criminosos que o pretenso colaborador afirma ter conhecimento e participação.<br>
+                    (Exemplo de resposta esperada: 'O pretenso colaborador alega participação em um esquema de desvio de verbas públicas na Secretaria X, envolvendo fraudes em licitações Y e Z, ocorridas entre 2020 e 2022.')<br><br>
+                    2.  Com base na descrição acima, identifique quais informações seriam inéditas e relevantes para a investigação em curso (Processo nº 000/MPF).<br>
+                    (Exemplo de resposta esperada: 'As informações sobre o modus operandi das fraudes na licitação Z e a identificação do servidor W como intermediário seriam inéditas.')<br><br>
+                    3.  Quais os possíveis benefícios legais que poderiam ser oferecidos ao colaborador, considerando a gravidade dos fatos e a efetividade da colaboração (conforme Lei nº 12.850/2013)?<br><br>
+                    4.  Liste 3 perguntas cruciais a serem feitas ao pretenso colaborador em uma reunião preliminar para aferir a veracidade e utilidade de suas informações."
+                </code>
+                <p><strong>Resultado esperado:</strong> A IA abordará cada ponto sequencialmente, construindo uma análise progressiva.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 4. Prompt de Autocorreção ou Reflexão (Self-Critique/Reflection Prompting)</h3>
+            <p><strong>O que é:</strong> Após a IA gerar uma resposta inicial, você pode pedir a ela que critique sua própria resposta, identifique possíveis falhas, imprecisões, ou áreas de melhoria, e então gere uma versão revisada.</p>
+            <p><strong>Por que usar no MP:</strong> Extremamente útil para refinar rascunhos de peças jurídicas, comunicados ou qualquer texto que exija alta precisão e clareza. Ajuda a identificar ambiguidades ou argumentos fracos.</p>
+            <div class="example">
+                <p class="example-title">Exemplo Prático (Revisão de Minuta de Recomendação):</p>
+                <p><strong>Prompt Inicial:</strong></p>
+                <code>
+                    "Aja como um Promotor de Justiça. Elabore um rascunho de recomendação ao Secretário Municipal de Saúde para que adote medidas para reduzir a fila de espera por consultas especializadas em cardiologia, com base no direito fundamental à saúde."
+                </code>
+                <p><strong>Resposta da IA (Exemplo Hipotético):</strong></p>
+                <p>"Recomenda-se ao Secretário de Saúde que tome providências para diminuir as filas de cardiologia, pois a saúde é um direito."</p>
+                <p><strong>Prompt de Autocorreção/Reflexão:</strong></p>
+                <code>
+                    "Analise a recomendação gerada acima. Ela está suficientemente fundamentada? Os pedidos são específicos e mensuráveis? Há sugestões de melhoria para torná-la mais técnica, persuasiva e juridicamente robusta? Reescreva a recomendação incorporando essas melhorias, citando o art. 196 da CF/88 e sugerindo, por exemplo, um prazo para resposta e a apresentação de um plano de ação."
+                </code>
+                <p><strong>Resultado esperado:</strong> A IA fornecerá uma versão aprimorada da recomendação, mais detalhada e fundamentada.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 5. Autoconsistência (Self-Consistency)</h3>
+            <p><strong>O que é:</strong> Esta é mais uma estratégia de uso do que uma técnica de escrita de prompt única. Envolve gerar múltiplas respostas para o mesmo prompt (especialmente usando a técnica de Cadeia de Pensamento - CoT) e, em seguida, selecionar a resposta ou conclusão que aparece com mais frequência. Isso aumenta a robustez e a confiabilidade do resultado, pois reduz a chance de uma resposta ser uma "alucinação" isolada.</p>
+            <p><strong>Por que usar no MP:</strong> Para questões complexas onde a precisão é crítica, como interpretação de cláusulas contratuais ambíguas ou avaliação de cenários com múltiplas variáveis. Pode não ser prático para todas as interações, mas é valioso para decisões importantes baseadas em análise da IA.</p>
+            <div class="example">
+                <p class="example-title">Exemplo Prático (Análise de Risco Contratual):</p>
+                <p><strong>Prompt (repetido 3-5 vezes, talvez com pequenas variações ou pedindo diferentes "caminhos de raciocínio"):</strong></p>
+                <code>
+                    "Analise a cláusula 5.1 do contrato administrativo anexo (hipotético) que trata de sanções por atraso na entrega. Explique passo a passo quais são os riscos para a Administração Pública em caso de um atraso de 30 dias pelo contratado e qual a penalidade mais provável a ser aplicada. Apresente sua conclusão."
+                </code>
+                <p><strong>Ação do Usuário:</strong> Comparar as conclusões e os raciocínios das várias respostas. Se a maioria das respostas, seguindo diferentes cadeias de pensamento, converge para a mesma penalidade ou análise de risco, essa conclusão é mais confiável.</p>
+                <p><strong>Nota:</strong> Alguns sistemas de IA mais avançados ou plataformas específicas podem ter funcionalidades embutidas para facilitar a autoconsistência.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Outras Técnicas Relevantes (Já Abordadas em Outras Seções)</h3>
+            <ul>
+                <li><strong>Prompt com Poucos Exemplos (Few-Shot Prompting):</strong> Fornecer exemplos de entrada e saída desejada. Detalhado em <a href="como-construir-prompts.html#iteracao-e-refinamento">Como Construir Prompts</a>.</li>
+                <li><strong>Geração Aumentada por Recuperação (Retrieval-Augmented Generation - RAG):</strong> Conectar a IA a bases de conhecimento externas para fornecer informações atualizadas e confiáveis. Detalhado em <a href="cuidados-praticos.html#rag">Cuidados Práticos</a> e <a href="como-customizar-modelos.html">Como Customizar Modelos</a>.</li>
+            </ul>
+        </section>
+
+        <p><strong>Observações Finais:</strong></p>
+        <ul>
+            <li><strong>Experimente e Combine:</strong> Não hesite em experimentar diferentes técnicas e combiná-las em um mesmo prompt para obter os melhores resultados.</li>
+            <li><strong>Iteração é Chave:</strong> Raramente o primeiro prompt avançado será perfeito. Refine suas instruções com base nas respostas da IA.</li>
+            <li><strong>Clareza e Especificidade:</strong> Mesmo com técnicas avançadas, a clareza e a especificidade do seu pedido continuam sendo fundamentais.</li>
+            <li><strong>Revisão Humana:</strong> Lembre-se que a IA é uma ferramenta de auxílio. A revisão humana qualificada é <strong>sempre indispensável</strong>, especialmente no contexto jurídico.</li>
+        </ul>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -7,25 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
-            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
-            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
-            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
-            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
-            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
-            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
-            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
-            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
-            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
-            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
-        </ul>
-    </nav>
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
     <div class="container">
         <h2>Conceitos Básicos utilizados com IA Generativa</h2>
 
@@ -63,7 +47,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="janela-de-contexto">
             <h3>📦 Janela de contexto (ou janela de tokens)</h3>
             <p>É o limite de memória do modelo por interação. A IA pode "lembrar" apenas os tokens que cabem nessa janela. Tudo o que passar do limite (como início de uma conversa longa) é descartado.</p>
             <div class="example">
@@ -89,9 +73,9 @@
             <p><strong>Comparação:</strong> O contexto é como o “clima da conversa”. Sem saber o que veio antes, a IA pode se perder ou gerar respostas desconectadas.</p>
         </section>
     </div>
-    <footer>
-        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
-    </footer>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/layout.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
