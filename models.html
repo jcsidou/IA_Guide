@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principais Modelos de LLM - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <h2>Principais Modelos de Linguagem de Grande Escala (LLMs) do Mercado</h2>
+        <p>Os Modelos de Linguagem de Grande Escala (LLMs) são o motor por trás da IA Generativa. Eles são treinados em vastas quantidades de dados textuais para entender e gerar linguagem humana de forma coerente e contextual. Conhecer os principais modelos disponíveis ajuda a entender suas capacidades e potenciais aplicações.</p>
+
+        <section>
+            <h3>🤖 OpenAI - Série GPT (Generative Pre-trained Transformer)</h3>
+            <ul>
+                <li><strong>Modelos Notáveis:</strong> GPT-3.5, GPT-4, GPT-4o.</li>
+                <li><strong>Descrição:</strong> Desenvolvidos pela OpenAI, os modelos GPT são conhecidos por sua forte capacidade de geração de texto, compreensão de contexto, tradução, resumo e resposta a perguntas. O GPT-4 e suas variantes mais recentes (como o GPT-4o, que integra multimodalidade de forma mais nativa) demonstram raciocínio avançado e maior precisão.</li>
+                <li><strong>Como podem ser utilizados no MP:</strong>
+                    <ul>
+                        <li>Auxílio na redação de rascunhos de minutas, ofícios e pareceres (sempre com revisão humana).</li>
+                        <li>Resumo de documentos longos (anonimizados).</li>
+                        <li>Geração de ideias para campanhas de conscientização.</li>
+                        <li>Explicação de conceitos jurídicos complexos de forma simplificada.</li>
+                        <li>Tradução de textos não sigilosos.</li>
+                    </ul>
+                </li>
+                <li><strong>Considerações:</strong> O acesso geralmente se dá por meio de APIs pagas (como o Azure OpenAI Service, que oferece mais controles de privacidade e segurança para uso corporativo) ou interfaces como o ChatGPT. É crucial verificar as políticas de uso de dados, especialmente a opção de "opt-out" para não usar os dados enviados para retreinamento do modelo público.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo de Uso (GPT-4):</p>
+                <p><strong>Prompt:</strong> "Aja como um assessor jurídico. Elabore um parágrafo introdutório para um ofício ao Tribunal de Contas, solicitando informações sobre o andamento de uma auditoria específica (Processo TCE nº 123/2024), de forma técnica e respeitosa."</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>🚀 Google - Gemini (anteriormente LaMDA e PaLM)</h3>
+            <ul>
+                <li><strong>Modelos Notáveis:</strong> Gemini Pro, Gemini Ultra, Gemini Flash.</li>
+                <li><strong>Descrição:</strong> A família de modelos Gemini do Google é projetada para ser multimodal, compreendendo e gerando não apenas texto, mas também código, imagens, áudio e vídeo. São otimizados para uma ampla gama de tarefas, desde conversação até análises complexas. Destacam-se pela sua grande janela de contexto em algumas versões.</li>
+                <li><strong>Como podem ser utilizados no MP:</strong>
+                    <ul>
+                        <li>Análise e resumo de informações de diversas fontes (texto, e potencialmente áudio/vídeo de audiências públicas anonimizadas no futuro, com as ferramentas adequadas).</li>
+                        <li>Geração de conteúdo criativo e informativo.</li>
+                        <li>Pesquisa e síntese de informações sobre temas jurídicos.</li>
+                        <li>Auxílio na organização de grandes volumes de documentos textuais.</li>
+                    </ul>
+                </li>
+                <li><strong>Considerações:</strong> Disponível através do Google AI Studio, Vertex AI no Google Cloud Platform e em produtos como o Gemini (anteriormente Bard). Assim como com outros modelos, é vital verificar as políticas de privacidade e segurança, especialmente em ambientes corporativos via Google Cloud.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo de Uso (Gemini):</p>
+                <p><strong>Prompt:</strong> "Resuma os principais pontos do seguinte texto sobre a nova Lei de Licitações (Lei nº 14.133/2021) em 5 tópicos curtos. [colar trecho da lei ou artigo sobre ela]"</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>🦙 Meta - Llama (Large Language Model Meta AI)</h3>
+            <ul>
+                <li><strong>Modelos Notáveis:</strong> Llama 2, Llama 3.</li>
+                <li><strong>Descrição:</strong> Desenvolvidos pela Meta, os modelos Llama são disponibilizados de forma mais aberta (open source para pesquisa e uso comercial sob certas condições), o que permite maior customização e a possibilidade de serem hospedados em infraestrutura própria. Têm demonstrado performance competitiva com outros grandes modelos.</li>
+                <li><strong>Como podem ser utilizados no MP:</strong>
+                    <ul>
+                        <li>Potencial para fine-tuning com dados jurídicos anonimizados do próprio MP para criar modelos especializados em tarefas internas (ex: classificação de documentos, auxílio na triagem de petições), desde que em ambiente controlado e seguro.</li>
+                        <li>Geração de texto e respostas a perguntas, similar a outros LLMs.</li>
+                        <li>Desenvolvimento de chatbots internos para consulta de informações não sigilosas.</li>
+                    </ul>
+                </li>
+                <li><strong>Considerações:</strong> A natureza mais aberta exige maior responsabilidade na implementação, segurança e garantia de uso ético. O fine-tuning e a hospedagem própria demandam expertise técnica e infraestrutura adequada.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo de Uso (Llama):</p>
+                <p><strong>Prompt (após potencial fine-tuning):</strong> "Com base nos procedimentos internos do MP para instauração de Inquérito Civil, liste os documentos essenciais que devem compor a peça inicial para apurar [descrever um fato hipotético e anonimizado]."</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>☁️ Anthropic - Claude</h3>
+            <ul>
+                <li><strong>Modelos Notáveis:</strong> Claude 2, Claude 3 (Opus, Sonnet, Haiku).</li>
+                <li><strong>Descrição:</strong> Os modelos Claude da Anthropic são desenvolvidos com foco em segurança e em seguir instruções de forma mais precisa e menos propensa a gerar conteúdo problemático ("Constitutional AI"). Possuem grandes janelas de contexto e forte capacidade de compreensão e geração de texto longo.</li>
+                <li><strong>Como podem ser utilizados no MP:</strong>
+                    <ul>
+                        <li>Análise e resumo de documentos extensos, como processos judiciais anonimizados ou relatórios complexos.</li>
+                        <li>Redação de textos que exigem maior aderência a instruções e diretrizes.</li>
+                        <li>Tarefas de perguntas e respostas sobre grandes volumes de texto.</li>
+                        <li>Comparação de documentos e identificação de inconsistências.</li>
+                    </ul>
+                </li>
+                <li><strong>Considerações:</strong> A Anthropic enfatiza a segurança e o alinhamento ético. O acesso geralmente é via API. É importante avaliar as capacidades específicas de cada variante (Opus para tarefas complexas, Sonnet para equilíbrio entre performance e velocidade, Haiku para respostas rápidas).</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo de Uso (Claude 3):</p>
+                <p><strong>Prompt:</strong> "Analise o seguinte conjunto de cláusulas contratuais (anonimizadas) e identifique potenciais ambiguidades ou pontos que poderiam gerar litígio. Forneça uma breve justificativa para cada ponto identificado. [colar cláusulas]"</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>⚠️ Considerações Gerais ao Utilizar LLMs</h3>
+            <ul>
+                <li><strong>Revisão Humana Sempre:</strong> Nenhuma resposta de LLM deve ser utilizada em documentos oficiais ou para tomada de decisão sem uma rigorosa revisão e validação por um profissional qualificado.</li>
+                <li><strong>Privacidade e Confidencialidade:</strong> Nunca insira dados pessoais sensíveis, sigilosos ou informações de processos em segredo de justiça em prompts de IAs públicas ou que não garantam o opt-out de treinamento e a segurança adequada. Consulte as <a href="politicas-de-privacidade.html">Políticas de Privacidade</a>.</li>
+                <li><strong>Alucinações e Imprecisões:</strong> LLMs podem gerar informações incorretas ou fictícias ("alucinações"). Verifique sempre fatos, citações legais e jurisprudências em fontes oficiais. Veja mais em <a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a> e <a href="cuidados-praticos.html">Cuidados Práticos</a>.</li>
+                <li><strong>Custos:</strong> O uso de APIs de LLMs geralmente é tarifado com base no volume de tokens processados (entrada e saída). Monitore o consumo.</li>
+                <li><strong>Janela de Contexto:</strong> Entenda o limite de tokens que o modelo pode processar por vez. Textos muito longos podem precisar ser divididos ou resumidos.</li>
+                <li><strong>Evolução Rápida:</strong> Novos modelos e versões são lançados frequentemente. Mantenha-se atualizado sobre as capacidades e limitações dos modelos que utiliza.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
