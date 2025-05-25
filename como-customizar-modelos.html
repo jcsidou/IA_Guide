@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Customizar Modelos - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Como Customizar Modelos de IA Generativa</h2>
+        <p>A customização de modelos de IA permite que a IA gere respostas mais precisas, ajustadas ao contexto específico de um campo como o jurídico e às necessidades particulares do Ministério Público. No entanto, é essencial seguir boas práticas para garantir a segurança, precisão, conformidade legal e evitar a introdução de novos vieses ou a perpetuação de informações incorretas.</p>
+        <p>Existem principalmente duas abordagens para customizar o comportamento de LLMs: <strong>Fine-Tuning</strong> e <strong>Retrieval-Augmented Generation (RAG)</strong>. Ambas têm propósitos distintos e podem até ser usadas em conjunto.</p>
+
+        <section>
+            <h3>🔍 1. Utilizar Técnicas de Fine-Tuning Somente em Servidores Controlados, com Dados Anonimizados e Autorização Prévia</h3>
+            <ul>
+                <li><strong>O que é Fine-Tuning?</strong> Fine-tuning é o processo de treinar adicionalmente um modelo de IA pré-treinado (como o GPT) em um conjunto de dados menor e específico do domínio de interesse. O objetivo é ajustar os "pesos" internos do modelo para que ele se especialize em tarefas, estilos de linguagem ou conhecimentos particulares desse domínio. Por exemplo, treinar um LLM com milhares de pareceres jurídicos anonimizados para que ele aprenda o estilo e a estrutura típicos desses documentos.</li>
+                <li><strong>Exigências Cruciais para Fine-Tuning no Contexto do MP:</strong>
+                    <ul>
+                        <li><strong>Servidores Controlados e Seguros:</strong> O fine-tuning deve ser realizado em ambientes computacionais seguros, isolados e monitorados, preferencialmente dentro da infraestrutura do próprio Ministério Público ou em nuvens privadas virtuais com rigoroso controle de acesso. Isso é vital para proteger a confidencialidade dos dados de treinamento e do modelo customizado.</li>
+                        <li><strong>Dados de Treinamento Cuidadosamente Preparados e Anonimizados:</strong> Os dados utilizados para o fine-tuning <strong>devem ser rigorosamente anonimizados</strong> para remover quaisquer informações pessoais, sensíveis ou sigilosas, conforme as diretrizes de <a href="anonimizacao-de-pecas.html">Anonimização de Peças</a>. A qualidade e a representatividade desses dados são cruciais para o sucesso do fine-tuning. Dados enviesados ou de baixa qualidade resultarão em um modelo customizado enviesado ou de baixa performance.</li>
+                        <li><strong>Autorização Prévia e Governança:</strong> A decisão de realizar fine-tuning, a seleção dos dados, a metodologia e o uso do modelo customizado devem ser submetidos a um processo de aprovação interna, envolvendo gestores de tecnologia, comitês de ética (se aplicável) e o Encarregado pela Proteção de Dados (DPO). É preciso haver uma clara justificativa de necessidade e avaliação de riscos.</li>
+                        <li><strong>Custo e Complexidade:</strong> Fine-tuning pode ser computacionalmente intensivo e caro, exigindo GPUs e expertise técnica especializada.</li>
+                        <li><strong>Risco de "Catastrophic Forgetting":</strong> Às vezes, ao especializar demais o modelo em um nicho, ele pode "esquecer" parte de seu conhecimento geral anterior. É preciso balancear.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático de Fine-Tuning (Hipotético):</p>
+                <ul>
+                    <li><strong>Cenário:</strong> O Ministério Público deseja que a IA seja capaz de gerar rascunhos de manifestações em processos de execução penal que sigam um estilo muito específico da instituição e utilizem terminologias internas padronizadas.</li>
+                    <li><strong>Ação (após todas as aprovações e preparações):</strong>
+                        <ol>
+                            <li>Coleta-se um grande volume de manifestações anteriores sobre execução penal.</li>
+                            <li>Esses documentos são rigorosamente anonimizados.</li>
+                            <li>Um modelo de linguagem pré-treinado (ex: uma versão do GPT acessível via Azure OpenAI Service que permita fine-tuning) é treinado adicionalmente com esses dados anonimizados em um ambiente seguro.</li>
+                            <li>O modelo resultante (fine-tuned) será melhor em gerar textos no estilo e com o vocabulário desejado para aquela tarefa específica.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔍 2. Preferir RAG (Retrieval-Augmented Generation) para Injeção de Fontes Confiáveis e Atualizadas Durante a Geração</h3>
+            <ul>
+                <li><strong>O que é RAG?</strong> Como explicado em <a href="cuidados-praticos.html#rag">Cuidados Práticos</a>, RAG é uma técnica onde a IA, antes de gerar uma resposta, busca informações relevantes em uma base de conhecimento externa e confiável. Essa informação recuperada é então fornecida ao LLM como contexto adicional para que ele formule a resposta.</li>
+                <li><strong>Vantagens do RAG sobre (ou em complemento ao) Fine-Tuning:</strong>
+                    <ul>
+                        <li><strong>Acesso a Dados Atualizados e Dinâmicos:</strong> RAG permite que o LLM utilize informações que não estavam em seus dados de treinamento originais ou de fine-tuning, como jurisprudência recém-publicada, novas leis, ou documentos internos atualizados recentemente. Basta atualizar a base de conhecimento do RAG.</li>
+                        <li><strong>Redução do Risco de Alucinações Factuais:</strong> Ao basear a resposta em trechos de documentos reais recuperados, o RAG diminui a chance de a IA inventar fatos, citações ou dados.</li>
+                        <li><strong>Maior Transparência e Rastreabilidade:</strong> Sistemas RAG podem, muitas vezes, citar as fontes de onde a informação foi recuperada, permitindo verificação humana.</li>
+                        <li><strong>Menor Custo e Complexidade de Implementação (comparado ao Fine-Tuning):</strong> Embora exija uma base de conhecimento e um sistema de busca (geralmente vetorial), o RAG pode ser menos custoso e complexo de implementar e manter do que o fine-tuning contínuo de grandes modelos.</li>
+                        <li><strong>Controle sobre os Dados:</strong> A instituição tem controle total sobre o conteúdo da base de conhecimento utilizada pelo RAG.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático de Uso de RAG:</p>
+                <ul>
+                    <li><strong>Cenário:</strong> Um promotor precisa redigir uma peça sobre um tema jurídico específico e quer garantir que está utilizando a legislação e a jurisprudência mais recentes do STJ sobre o assunto.</li>
+                    <li><strong>Ação com RAG:</strong>
+                        <ol>
+                            <li>O Ministério Público mantém uma base de dados vetorial atualizada com legislação federal, súmulas e informativos de jurisprudência do STJ (todos dados públicos e confiáveis).</li>
+                            <li>Ao fazer um prompt como "Elabore argumentos sobre [tema X], considerando a jurisprudência atual do STJ", o sistema RAG primeiro busca na base vetorial os documentos mais relevantes sobre o [tema X] e a jurisprudência do STJ.</li>
+                            <li>Esses trechos recuperados são fornecidos ao LLM junto com o prompt original.</li>
+                            <li>O LLM gera os argumentos utilizando como base principal os textos recentes e confiáveis recuperados, em vez de apenas seu conhecimento pré-treinado (que pode estar desatualizado).</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <p><strong>RAG é frequentemente a melhor primeira opção para customização quando o objetivo é fornecer conhecimento factual, atualizado e específico do domínio para o LLM.</strong></p>
+        </section>
+
+        <section>
+            <h3>🔍 3. Fine-Tuning: Quando é Mais Indicado?</h3>
+            <p>O Fine-Tuning é mais indicado para ajustar o <strong>estilo, tom, formato</strong> da resposta da IA, ou para ensiná-la a realizar <strong>tarefas muito específicas</strong> que não são bem cobertas pelo modelo base, e que não dependem primariamente de conhecimento factual que muda rapidamente.</p>
+            <ul>
+                <li><strong>Quando usar Fine-Tuning:</strong>
+                    <ul>
+                        <li>Quando é necessário que o modelo adote um jargão jurídico muito específico da instituição ou de uma área particular do direito.</li>
+                        <li>Para gerar documentos que sigam uma estrutura ou formatação muito particular (ex: um tipo específico de relatório interno).</li>
+                        <li>Para melhorar a capacidade do modelo em seguir instruções complexas ou em "pensar" de uma forma mais alinhada com o raciocínio jurídico em cenários específicos (embora isso seja difícil de alcançar perfeitamente).</li>
+                        <li>Para adaptar o modelo a um dialeto ou linguagem muito específica não bem representada nos dados de treinamento originais.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático de Fine-Tuning para Estilo:</p>
+                <ul>
+                    <li><strong>Cenário:</strong> O Ministério Público deseja que a IA gere resumos de notícias para um boletim interno com um tom muito formal e objetivo, diferente do tom mais conversacional que o modelo base poderia ter.</li>
+                    <li><strong>Ação:</strong> O modelo poderia ser fine-tuned com pares de notícias originais e seus respectivos resumos escritos no estilo desejado.</li>
+                </ul>
+            </div>
+            <p><strong>Importante:</strong> Fine-tuning não é a melhor solução para ensinar ao modelo fatos novos ou conhecimento que muda constantemente (como novas leis ou jurisprudência). Para isso, RAG é mais eficiente. Fine-tuning e RAG podem ser usados juntos: um modelo fine-tuned para o estilo jurídico pode então usar RAG para acessar dados atualizados.</p>
+        </section>
+
+        <section>
+            <h3>🔍 4. Cuidados Essenciais ao Customizar Modelos de IA</h3>
+            <ul>
+                <li><strong>Segurança e Privacidade dos Dados:</strong> Reforçando: <strong>NUNCA</strong> use dados confidenciais, sigilosos ou pessoais não anonimizados para fine-tuning em plataformas que não garantam isolamento total e controle dos dados. Para RAG, a base de conhecimento deve ser construída com dados cujo uso é permitido e seguro.</li>
+                <li><strong>Conformidade Legal (LGPD):</strong> Certifique-se de que todo o processo de customização (coleta de dados, anonimização, treinamento, uso do modelo customizado) está em estrita conformidade com a Lei Geral de Proteção de Dados e outras normativas aplicáveis. Obtenha consentimento quando necessário ou garanta que a base legal para o tratamento dos dados é adequada.</li>
+                <li><strong>Avaliação de Vieses:</strong> Dados de treinamento, mesmo que internos, podem conter vieses históricos ou institucionais. O fine-tuning pode amplificar esses vieses. É crucial auditar os dados de treinamento e os resultados do modelo customizado para identificar e mitigar vieses.</li>
+                <li><strong>Teste e Validação Rigorosos:</strong> Antes de colocar um modelo customizado em uso, ele deve ser extensivamente testado em uma variedade de cenários para garantir que ele se comporta como esperado, que é preciso e que não produz resultados indesejados ou prejudiciais.</li>
+                <li><strong>Manutenção e Monitoramento Contínuos:</strong> Modelos de IA podem degradar em performance com o tempo ("model drift") à medida que os dados do mundo real mudam. É preciso monitorar o desempenho do modelo customizado e, possivelmente, re-treiná-lo ou ajustar a base de RAG periodicamente.</li>
+                <li><strong>Documentação Completa:</strong> Documente todo o processo de customização: fontes de dados, métodos de anonimização, parâmetros de fine-tuning, arquitetura do RAG, resultados de testes, etc. Isso é vital para transparência, reprodutibilidade e futuras manutenções.</li>
+                <li><strong>Revisão Humana Sempre Necessária:</strong> Mesmo após a customização, e especialmente para tarefas críticas, a revisão humana dos textos e análises gerados pela IA continua sendo indispensável. A customização visa melhorar a ferramenta, não torná-la infalível ou autônoma para decisões importantes.</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

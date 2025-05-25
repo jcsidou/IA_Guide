@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas de Privacidade - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>✅ Políticas de Privacidade para Uso da IA Generativa</h2>
+        <p>As políticas de privacidade são essenciais para garantir que o uso da IA generativa respeite os princípios da Lei Geral de Proteção de Dados (LGPD) e outros regulamentos aplicáveis, protegendo as informações pessoais e sigilosas.</p>
+
+        <section>
+            <h3>🔍 1. Proibido Inserir Dados Pessoais Sensíveis ou Sigilosos</h3>
+            <p><strong>O que são dados pessoais sensíveis?</strong></p>
+            <p>Tratam-se de informações, assim denominadas pela legislação, relacionadas a situações de vulnerabilidade e discriminação, exigindo um regime jurídico diferenciado e mais reforçado.</p>
+            <ul>
+                <li>Origem racial ou étnica;</li>
+                <li>Convicção religiosa;</li>
+                <li>Opinião política;</li>
+                <li>Filiação a sindicato ou a organização de caráter religioso, filosófico ou político;</li>
+                <li>Dado referente à saúde ou à vida sexual;</li>
+                <li>Dado genético ou biométrico.</li>
+            </ul>
+            <p><strong>O que são informações sigilosas?</strong></p>
+            <p>Dados protegidos por sigilo legal, como:</p>
+            <ul>
+                <li>Informações de processos em segredo de justiça.</li>
+                <li>Declarações de testemunhas protegidas.</li>
+                <li>Detalhes de investigações sigilosas.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplos Práticos:</p>
+                <div class="prohibited">
+                    <p class="prohibited-title">Proibido: Usar o prompt:</p>
+                    <p>"Gere um parecer jurídico para o processo nº 0001234-56.2025.8.00.0000, em que Maria Souza é autora e João Silva é réu."</p>
+                </div>
+                <div class="allowed">
+                    <p class="allowed-title">Permitido:</p>
+                    <p>"Gere um parecer jurídico explicando o conceito de dano moral, sem mencionar dados específicos de pessoas ou processos."</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔍 2. Utilizar Apenas Serviços que Assegurem Opt-Out de (Re)Treinamento</h3>
+            <ul>
+                <li>Garanta que o serviço de IA utilizado ofereça a opção de "opt-out" do uso de dados para (re)treinamento do modelo.</li>
+                <li>Isso evita que informações inseridas sejam utilizadas para melhorar o modelo, protegendo a privacidade.</li>
+                <li>Verifique os Termos de Uso e a Política de Privacidade da plataforma de IA escolhida.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplos de Serviços com Opt-Out:</p>
+                <ul>
+                    <li><strong>Azure OpenAI Service:</strong> Permite desativar o uso de dados para (re)treinamento.</li>
+                    <li><strong>Google Cloud AI:</strong> Oferece controles de privacidade específicos para clientes empresariais.</li>
+                    <li><strong>AWS (Amazon Web Services):</strong> Assegura que os dados do cliente não são usados para treinar os modelos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔍 3. Manter Registros dos Prompts e Saídas Geradas por, no Mínimo, 5 Anos</h3>
+            <ul>
+                <li>Manter um registro seguro e organizado de todos os prompts utilizados e das respostas geradas pela IA.</li>
+                <li>Isso é importante para fins de auditoria, rastreabilidade e responsabilidade.</li>
+                <li>Armazene os registros em sistemas seguros, garantindo o acesso apenas a usuários autorizados.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático de Registro:</p>
+                <ul>
+                    <li><strong>Data:</strong> 10 de maio de 2025</li>
+                    <li><strong>Usuário:</strong> Promotor de Justiça João Almeida</li>
+                    <li><strong>Prompt Utilizado:</strong> "Explique o conceito de presunção de paternidade com base no artigo 1.597 do Código Civil."</li>
+                    <li><strong>Resposta Gerada:</strong> "Presunção de paternidade é o reconhecimento legal de que..."</li>
+                </ul>
+                <p class="example-title">✅ Como Manter os Registros:</p>
+                <ul>
+                    <li>Utilizar plataformas seguras para armazenamento (SharePoint, Azure Blob Storage, AWS S3).</li>
+                    <li>Organizar os registros por data e usuário.</li>
+                    <li>Definir políticas de acesso e backup dos registros.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔍 4. Outros Aspectos Importantes</h3>
+            <ul>
+                <li><strong>Segurança da Informação:</strong> Garanta que os registros estejam protegidos por senha e criptografia.</li>
+                <li><strong>Controle de Acesso:</strong> Limite o acesso aos registros apenas para usuários autorizados.</li>
+                <li><strong>Política de Retenção:</strong> Defina claramente o prazo de retenção (mínimo de 5 anos), com revisão periódica.</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

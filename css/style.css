@@ -1,0 +1,140 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #003366;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    background-color: #004080;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #0059b3;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #004080;
+}
+
+p, li {
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+strong {
+    color: #003366;
+}
+
+code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.example {
+    background-color: #e6f2ff;
+    border-left: 5px solid #0059b3;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.example-title {
+    font-weight: bold;
+    color: #003366;
+}
+
+.warning {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.warning-title {
+    font-weight: bold;
+    color: #856404;
+}
+
+.prohibited {
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.prohibited-title {
+    font-weight: bold;
+    color: #721c24;
+}
+
+.allowed {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.allowed-title {
+    font-weight: bold;
+    color: #155724;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: #fff;
+    margin-top: 20px;
+}

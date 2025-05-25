@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Prompts - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>✅ Exemplos de Prompts para o Ministério Público</h2>
+        <p>A seguir, apresentamos exemplos práticos de prompts que podem ser utilizados por membros e servidores do Ministério Público, adaptados para diferentes necessidades e contextos. Lembre-se de ajustar os detalhes conforme o caso específico.</p>
+
+        <section>
+            <h3>1. Para Redigir um Parecer Jurídico (Rascunho Inicial)</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Aja como um Promotor de Justiça com 10 anos de experiência na área criminal.<br>
+                    Elabore um rascunho de parecer jurídico, em linguagem técnica e formal, sobre a possibilidade de aplicação do princípio da insignificância no caso de furto de um bem avaliado em R$ 50,00, considerando que o réu é primário e possui bons antecedentes.<br>
+                    Contexto: Processo nº XXXX, manifestação ministerial antes da decisão judicial.<br>
+                    Fundamente com base na jurisprudência recente do STJ e STF sobre o tema.<br>
+                    Estruture o parecer com: I. Breve Relatório dos Fatos; II. Fundamentação Jurídica; III. Conclusão.<br>
+                    Limite a aproximadamente 800 palavras."
+                </code>
+            </div>
+            <div class="example">
+                <p class="example-title">Outro Exemplo (Foco em Tese Específica):</p>
+                <code>
+                    "Como um Promotor de Justiça, elabore os argumentos para um parecer contrários à concessão de liberdade provisória para um réu acusado de tráfico de drogas (Art. 33 da Lei 11.343/06), preso em flagrante com quantidade significativa de entorpecentes.<br>
+                    Destaque os requisitos da prisão preventiva, especialmente a garantia da ordem pública e a conveniência da instrução criminal.<br>
+                    Utilize linguagem formal e cite ao menos dois julgados (hipotéticos ou reais, se instruído a buscar em base externa via RAG) que corroborem a tese.<br>
+                    O parecer deve ser conciso, com no máximo 3 parágrafos para a fundamentação."
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>2. Para Elaborar um Relatório Técnico (Análise de Documentos)</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Aja como um Analista Técnico do Ministério Público, especializado em análise de dados financeiros.<br>
+                    Elabore um relatório técnico (objetivo e direto, com ênfase em dados e fatos) sobre a análise de extratos bancários fornecidos no processo nº YYYY.<br>
+                    Texto para análise: [COLE AQUI OS DADOS RELEVANTES DOS EXTRATOS DE FORMA ANONIMIZADA OU UM RESUMO DOS ACHADOS]<br>
+                    O relatório deve identificar: <br>
+                    1. Transações suspeitas (acima de R$ 10.000,00 sem justificativa aparente).<br>
+                    2. Padrões de depósitos e saques que possam indicar lavagem de dinheiro.<br>
+                    3. Conexões financeiras entre os investigados A, B e C.<br>
+                    Apresente os resultados em tópicos e, se possível, sugira um formato de tabela para resumir as transações suspeitas (Data, Valor, Origem, Destino, Observação)."
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>3. Para Criar um Comunicado Institucional (Linguagem Acessível)</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Aja como o Assessor de Comunicação do Ministério Público.<br>
+                    Redija um comunicado (linguagem clara, acessível e didática, evitando jargões jurídicos) explicando à população os canais de denúncia de crimes de violência doméstica e a importância de procurar ajuda.<br>
+                    O comunicado será publicado no site e redes sociais do MP.<br>
+                    Inclua: <br>
+                    - O que é violência doméstica (principais formas).<br>
+                    - Como denunciar (Disque 180, delegacias, MP).<br>
+                    - Mensagem de encorajamento e apoio às vítimas.<br>
+                    O texto deve ter no máximo 5 parágrafos."
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>4. Para Redigir uma Notícia Jurídica (Explicação de Decisão)</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Aja como um jornalista da área jurídica.<br>
+                    Escreva uma notícia (linguagem clara, objetiva e jornalística, para público leigo) explicando a recente decisão do Tribunal de Justiça que condenou um ex-gestor público por improbidade administrativa no caso ZZZZ (forneça um breve resumo dos fatos do caso ZZZZ, sem dados sigilosos).<br>
+                    Destaque:<br>
+                    - Qual foi a conduta irregular.<br>
+                    - Quais foram as sanções aplicadas.<br>
+                    - A importância da decisão para o combate à corrupção.<br>
+                    A notícia deve ter um título chamativo e ser dividida em 3 a 4 parágrafos."
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>5. Para Resumir Documentos Longos</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Resuma o seguinte texto em 5 pontos principais. O resumo deve ser conciso e focado nos argumentos centrais.<br>
+                    Texto: """[COLE AQUI O TEXTO LONGO, POR EXEMPLO, UMA DECISÃO JUDICIAL OU ARTIGO DOUTRINÁRIO, RESPEITANDO O LIMITE DE TOKENS DA FERRAMENTA E AS POLÍTICAS DE PRIVACIDADE]"""
+                </code>
+            </div>
+            <div class="example">
+                <p class="example-title">Prompt para Resumo Estruturado:</p>
+                <code>
+                    "Analise o acórdão anexo (ou o texto abaixo) e forneça um resumo estruturado contendo:<br>
+                    1. Fatos principais do caso.<br>
+                    2. Questão jurídica central discutida.<br>
+                    3. Fundamentos da decisão.<br>
+                    4. Dispositivo (resultado do julgamento).<br>
+                    Texto: """[COLE AQUI O TEXTO DO ACÓRDÃO, ANONIMIZADO SE NECESSÁRIO]"""
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>6. Para Gerar Perguntas para Oitivas ou Audiências</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Considerando um caso de investigação de fraude em licitação na prefeitura X, onde se suspeita de direcionamento para a empresa Y, com participação do servidor Z.<br>
+                    Sugira 10 perguntas chave a serem feitas em uma oitiva para a testemunha A, que era membro da comissão de licitação na época dos fatos.<br>
+                    As perguntas devem buscar esclarecer:<br>
+                    - O conhecimento de A sobre irregularidades.<br>
+                    - A relação de A com o servidor Z e representantes da empresa Y.<br>
+                    - Detalhes do procedimento licitatório."
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>7. Para Tradução de Termos ou Trechos (com Cautela)</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Traduza o seguinte termo jurídico do inglês para o português, explicando brevemente seu significado no contexto do direito comparado: 'plea bargain'."
+                </code>
+            </div>
+            <div class="warning">
+                <p class="warning-title">⚠️ Atenção:</p>
+                <p>Para traduções de documentos completos ou sensíveis, prefira tradutores juramentados ou ferramentas especializadas com garantia de confidencialidade. A IA pode ser útil para termos pontuais ou compreensão geral, mas sempre revise.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>8. Para Brainstorming e Geração de Ideias</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Estou preparando uma campanha de conscientização sobre crimes cibernéticos voltada para idosos.<br>
+                    Liste 5 temas principais que deveriam ser abordados e sugira 3 slogans criativos para a campanha."
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>9. Para Revisão e Melhoria de Textos</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Revise o seguinte parágrafo de uma minuta de portaria, melhorando a clareza, concisão e corrigindo eventuais erros gramaticais. Mantenha o tom formal.<br>
+                    Parágrafo original: """Considerando a necessidade de se estabelecer um fluxo mais eficiente no que tange ao recebimento e encaminhamento de demandas que chegam a esta promotoria, e visando otimizar os recursos humanos e materiais disponíveis para que possamos dar uma resposta mais célere à sociedade que nos procura para resolver seus problemas.""" "
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>10. Para Explicação de Conceitos Jurídicos Complexos</h3>
+            <div class="example">
+                <p class="example-title">Prompt:</p>
+                <code>
+                    "Explique o conceito de 'dolo eventual' e 'culpa consciente' no Direito Penal brasileiro, de forma didática, como se estivesse explicando para um estagiário de Direito no início do curso. Apresente um exemplo prático para cada um, diferenciando-os claramente."
+                </code>
+            </div>
+        </section>
+
+        <p>Lembre-se: estes são apenas pontos de partida. A chave para bons resultados com IA generativa é a clareza, o contexto e a especificidade do seu prompt. Não hesite em experimentar e refinar suas instruções. Consulte também a seção <a href="como-construir-prompts.html">Como Construir Prompts</a> para mais dicas.</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

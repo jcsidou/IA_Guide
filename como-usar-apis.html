@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Usar APIs - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Como Usar APIs</h2>
+        <p>APIs (Application Programming Interfaces) são interfaces que permitem a comunicação entre diferentes sistemas e aplicações, viabilizando a troca de dados e funcionalidades de forma segura e eficiente. No contexto do Ministério Público, o uso correto e seguro de APIs é fundamental para garantir a proteção de informações sensíveis e a integridade dos sistemas, especialmente ao integrar serviços de IA Generativa.</p>
+
+        <section>
+            <h3>🔐 1. Armazenar Chaves de API com Segurança</h3>
+            <ul>
+                <li><strong>Utilizar Cofres de Segredos (Secret Vaults):</strong>
+                    <ul>
+                        <li>Ferramentas como Azure Key Vault, AWS Secrets Manager e Google Secret Manager permitem armazenar e proteger chaves de API, tokens de acesso e outros segredos.</li>
+                        <li>Configure permissões de acesso restritas (princípio do menor privilégio), garantindo que apenas usuários e sistemas autorizados possam acessar as chaves.</li>
+                        <li>Evite armazenar chaves de API diretamente no código-fonte, em arquivos de configuração não protegidos ou em variáveis de ambiente de fácil acesso.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo Prático:</p>
+                <p><strong>No Azure Key Vault:</strong></p>
+                <ol>
+                    <li>Crie um cofre de segredos (Key Vault).</li>
+                    <li>Adicione a chave de API como um "segredo" dentro do cofre.</li>
+                    <li>Defina políticas de acesso específicas para as aplicações ou identidades gerenciadas (Managed Identities) que precisam usar essa chave, concedendo apenas as permissões necessárias (ex: "Get Secret").</li>
+                    <li>A aplicação recupera a chave do Key Vault em tempo de execução, em vez de tê-la em seu código.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h3>📊 2. Controlar Custos e Habilitar Auditoria de Uso</h3>
+            <ul>
+                <li><strong>Monitorar o Uso de APIs:</strong> Utilize ferramentas de monitoramento e dashboards (oferecidos pelo provedor da API ou por plataformas de gerenciamento de API) para acompanhar o consumo de APIs, identificar padrões de uso, possíveis abusos ou uso não autorizado.</li>
+                <li><strong>Estabelecer Limites de Uso (Rate Limiting e Quotas):</strong> Defina limites de chamadas (rate limiting) por usuário, por chave de API ou por IP para evitar consumo excessivo, proteger os recursos contra ataques de negação de serviço (DoS) e controlar custos. Configure quotas para limitar o número total de chamadas em um período.</li>
+                <li><strong>Habilitar Auditoria:</strong> Ative o registro de logs detalhados para todas as chamadas de API. Os logs devem incluir informações como: quem acessou a API (identificador do usuário/aplicação), qual endpoint foi acessado, quando (timestamp), de qual endereço IP, o status da requisição e os parâmetros utilizados (com dados sensíveis mascarados).</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo Prático:</p>
+                <p><strong>No Azure API Management:</strong></p>
+                <ul>
+                    <li>Defina políticas de limite de taxa (e.g., 100 chamadas por minuto por chave de API) e políticas de quota (e.g., 10.000 chamadas por mês por assinatura).</li>
+                    <li>Integre com o Azure Monitor e o Application Insights para coletar logs de diagnóstico, métricas de uso e configurar alertas para identificar picos de uso anormais ou erros frequentes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔒 3. Garantir Criptografia em Trânsito e em Repouso</h3>
+            <ul>
+                <li><strong>Criptografia em Trânsito (TLS 1.2+):</strong>
+                    <ul>
+                        <li>Use o protocolo TLS (Transport Layer Security) versão 1.2 ou superior para proteger a comunicação entre o cliente (sua aplicação) e o servidor da API. Isso garante que os dados trocados sejam criptografados e não possam ser interceptados.</li>
+                        <li>Configure o servidor da API para aceitar apenas conexões seguras (HTTPS) e desative versões obsoletas e inseguras de SSL/TLS (como SSLv3, TLS 1.0, TLS 1.1).</li>
+                    </ul>
+                </li>
+                <li><strong>Criptografia em Repouso:</strong>
+                    <ul>
+                        <li>Se a API ou o sistema que a consome armazena dados sensíveis (recebidos ou gerados pela API), esses dados devem ser criptografados em repouso, utilizando algoritmos de criptografia fortes como AES-256.</li>
+                        <li>Em bancos de dados, habilite a criptografia em nível de disco (ex: Transparent Data Encryption - TDE) e considere a criptografia em nível de coluna para campos particularmente sensíveis.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="example">
+                <p class="example-title">Exemplo Prático:</p>
+                <p><strong>Em uma API hospedada no Azure App Service:</strong></p>
+                <ul>
+                    <li>Ative "HTTPS Only" para forçar o redirecionamento de todas as conexões HTTP para HTTPS.</li>
+                    <li>Configure a versão mínima do TLS para 1.2 nas configurações do App Service.</li>
+                    <li>Se a API interage com um Banco de Dados SQL do Azure, ative o Transparent Data Encryption (TDE) e, se necessário, o Always Encrypted para colunas específicas.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>🚀 4. Outros Aspectos Essenciais para o Uso de APIs</h3>
+            <ul>
+                <li><strong>Controle de Acesso e Autenticação Forte:</strong>
+                    <ul>
+                        <li>Utilize mecanismos de autenticação robustos para proteger suas APIs, como OAuth 2.0 (com fluxos apropriados, como Client Credentials para comunicação máquina-a-máquina ou Authorization Code para usuários) ou OpenID Connect (OIDC) para autenticar usuários.</li>
+                        <li>Implemente autorização baseada em escopos (scopes) ou papéis (roles) para garantir que os clientes da API tenham acesso apenas às funcionalidades e dados estritamente necessários para sua operação (princípio do menor privilégio).</li>
+                        <li>Considere o uso de Autenticação Multifator (MFA) para acesso a portais de gerenciamento de API ou para operações críticas.</li>
+                    </ul>
+                </li>
+                <li><strong>Validação de Entrada e Saída:</strong>
+                    <ul>
+                        <li>Valide rigorosamente todos os dados de entrada recebidos pela API para prevenir ataques como injeção de SQL, XSS (Cross-Site Scripting) e outros. Verifique tipos de dados, tamanhos, formatos e intervalos permitidos.</li>
+                        <li>Valide e sanitize os dados de saída para evitar o vazamento de informações sensíveis ou a propagação de conteúdo malicioso.</li>
+                    </ul>
+                </li>
+                <li><strong>Segurança contra Ataques Comuns (OWASP API Security Top 10):</strong>
+                    <ul>
+                        <li>Proteja as APIs contra as vulnerabilidades mais comuns, como Broken Object Level Authorization, Broken User Authentication, Excessive Data Exposure, Lack of Resources & Rate Limiting, etc.</li>
+                        <li>Implemente Web Application Firewalls (WAFs) e proteção contra DDoS (Distributed Denial of Service) na frente das suas APIs.</li>
+                    </ul>
+                </li>
+                <li><strong>Gerenciamento de Versões:</strong>
+                    <ul>
+                        <li>Implemente uma estratégia de versionamento para suas APIs (ex: no URI, cabeçalho HTTP) para permitir atualizações e evoluções sem quebrar integrações existentes.</li>
+                        <li>Comunique claramente as mudanças e planos de descontinuação de versões antigas.</li>
+                    </ul>
+                </li>
+                <li><strong>Testes de Segurança Regulares:</strong>
+                    <ul>
+                        <li>Realize testes regulares de segurança (como testes de penetração - pentests, e revisões de código seguro) específicos para as APIs.</li>
+                        <li>Utilize scanners automáticos de segurança de API e ferramentas de análise estática (SAST) e dinâmica (DAST) de código.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <div class="example">
+            <p class="example-title">✅ Exemplo Completo de Implementação de API Segura (Checklist Simplificado):</p>
+            <ol>
+                <li><strong>Armazenar Chaves de API:</strong> No Azure Key Vault, armazenar a chave de API com permissões de leitura apenas para o serviço/aplicação autorizada.</li>
+                <li><strong>Controlar Custos e Habilitar Auditoria:</strong> Configurar o Azure API Management para limitar chamadas (ex: 1000 requisições por minuto por usuário/chave). Habilitar o log de auditoria, registrando todas as chamadas, usuários e IPs.</li>
+                <li><strong>Garantir Criptografia:</strong> Ativar HTTPS com TLS 1.2+ para toda comunicação da API. Armazenar dados sensíveis no banco de dados com criptografia AES-256 (TDE e/ou Always Encrypted).</li>
+                <li><strong>Autenticação e Controle de Acesso:</strong> Utilizar OAuth 2.0 com escopos definidos para usuários e serviços. Implementar autenticação multifator (MFA) para acesso administrativo à plataforma de API.</li>
+                <li><strong>Validação:</strong> Validar todos os parâmetros de entrada e sanitizar saídas.</li>
+                <li><strong>Monitoramento e Alertas:</strong> Configurar alertas para tráfego anômalo ou taxas de erro elevadas.</li>
+            </ol>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

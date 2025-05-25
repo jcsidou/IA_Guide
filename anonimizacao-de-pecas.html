@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonimização de Peças - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Anonimização de Peças</h2>
+        <p>A anonimização de peças jurídicas é uma prática fundamental para garantir a proteção de dados pessoais e a privacidade das partes envolvidas em processos judiciais, especialmente antes de utilizar tais peças para treinamento de modelos de IA, análise por IA ou divulgação pública controlada. No contexto do Ministério Público, isso é crucial para proteger a identidade de vítimas, testemunhas, investigados (em fases apropriadas) e outras partes, em conformidade com a Lei Geral de Proteção de Dados (LGPD) e outras normativas de sigilo.</p>
+        <ul>
+            <li><strong>Anonimização:</strong> Processo de remover ou modificar informações pessoais de forma que os dados não possam mais ser associados, direta ou indiretamente, a um indivíduo específico, considerando todos os meios razoáveis e disponíveis para identificação.</li>
+            <li><strong>Objetivo:</strong> Proteger a privacidade e a segurança dos envolvidos, garantindo o cumprimento da LGPD, e permitir o uso secundário dos dados (como para pesquisa, estatística ou treinamento de IA) de forma ética e legal.</li>
+        </ul>
+
+        <section>
+            <h3>✅ 1. Identificar e Remover/Substituir Informações Pessoais Identificáveis</h3>
+            <p>É crucial identificar e tratar todos os dados que possam levar à identificação de uma pessoa. Isso inclui:</p>
+            <ul>
+                <li><strong>Nomes completos de pessoas físicas:</strong> Substituir por referências genéricas (Ex: Parte A, Investigado 1, Vítima X, Testemunha Y) ou pseudônimos consistentes dentro do documento.</li>
+                <li><strong>CPFs, RGs, Títulos de Eleitor, CNHs, Passaportes:</strong> Remover completamente ou substituir por um placeholder genérico (Ex: "[CPF OMITIDO]", "ID_GENERICO_123").</li>
+                <li><strong>Datas de Nascimento Completas:</strong> Generalizar para faixas etárias (Ex: "adulto", "idoso") ou remover, se não essencial para o contexto anonimizado. Manter apenas o ano pode ser uma opção em alguns casos, mas com cautela.</li>
+                <li><strong>Endereços completos (rua, número, bairro, CEP):</strong> Remover ou substituir por informações genéricas (Ex: "Endereço Confidencial", "Zona Urbana de [Cidade Genérica]").</li>
+                <li><strong>Números de telefone, endereços de e-mail, perfis de redes sociais:</strong> Remover completamente.</li>
+                <li><strong>Placas de veículos, números de chassi:</strong> Remover ou substituir.</li>
+                <li><strong>Dados bancários (contas, agências):</strong> Remover completamente.</li>
+                <li><strong>Matrículas de imóveis, números de processos judiciais ou administrativos específicos (se o objetivo é desvincular o conteúdo do caso original):</strong> Substituir por "Número de Processo Anônimo" ou um código interno. Se o objetivo é analisar o texto de um processo específico sem expor as partes, o número do processo pode ser mantido internamente, mas não em versões compartilhadas ou usadas para treinamento amplo.</li>
+                <li><strong>Nomes de empresas ou instituições (se puderem indiretamente identificar pessoas):</strong> Avaliar caso a caso. Em alguns contextos, pode ser necessário generalizar (Ex: "uma grande empresa de varejo").</li>
+                <li><strong>Informações biométricas ou genéticas:</strong> Remover completamente.</li>
+                <li><strong>Outros dados que, em conjunto, possam levar à identificação (dados indiretamente identificáveis):</strong> Ex: "o único médico cardiologista da cidade de Pequenópolis" pode ser identificável. Generalizar para "um médico especialista".</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático:</p>
+                <p><strong>Original:</strong> "João da Silva, portador do CPF 123.456.789-00 e RG 12.345.678-X SSP/SP, nascido em 15/03/1980, residente na Rua das Flores, nº 100, Bairro dos Cravos, Cidade Exemplar/UF, CEP 12345-000, apresentou defesa no processo nº 0001234-56.2025.8.00.0000, referente à empresa 'Silva & Filhos Comércio Ltda'."</p>
+                <p><strong>Anonimizado (para análise textual genérica):</strong> "Parte A, portador(a) de documentos pessoais omitidos, adulto(a), residente em endereço confidencial na Cidade Exemplar/UF, apresentou defesa no Processo Anônimo XYZ, referente a uma empresa comercial."</p>
+                <p><strong>Anonimizado (mantendo alguma estrutura para análise de caso, com pseudônimos):</strong> "O Requerente (RQT-01), documentos pessoais suprimidos, nascido no ano de 1980, residente em localidade preservada, apresentou defesa no Processo JUD-ALFA-001, referente à pessoa jurídica PJ-BETA."</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 2. Substituir Referências Diretas por Identificadores Genéricos Consistentes</h3>
+            <ul>
+                <li>Em vez de mencionar nomes específicos, use identificadores genéricos ou pseudônimos que sejam consistentes ao longo de todo o documento ou conjunto de documentos relacionados.</li>
+                <li>Exemplos:
+                    <ul>
+                        <li>Parte A, Parte B, Parte C - para os envolvidos.</li>
+                        <li>Testemunha 1, Testemunha 2 (ou T1, T2) - para testemunhas.</li>
+                        <li>Vítima 1, Vítima 2 (ou V1, V2) - para vítimas.</li>
+                        <li>Investigado Alpha, Investigado Beta - para investigados.</li>
+                        <li>Promotor P1, Juiz J1 - se necessário anonimizar os operadores do direito.</li>
+                    </ul>
+                </li>
+                <li>Manter a consistência é crucial para que o texto anonimizado ainda retenha sentido e permita análises contextuais.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático:</p>
+                <p><strong>Original:</strong> "A vítima Maria Souza declarou que o acusado João da Silva cometeu o crime na presença de sua vizinha, Ana Pereira."</p>
+                <p><strong>Anonimizado:</strong> "A Vítima 1 (V1) declarou que o Acusado (Parte A) cometeu o crime na presença da Testemunha 1 (T1)."</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 3. Aplicar Técnicas de Masking, Generalização e Perturbação de Dados</h3>
+            <ul>
+                <li><strong>Masking (Mascaramento):</strong> Substituir parte dos dados sensíveis por caracteres curinga (como asteriscos '*' ou 'X'). É menos seguro que a remoção completa ou substituição por identificadores, pois ainda pode vazar alguma informação (ex: comprimento do dado).
+                    <div class="example">
+                        <p><strong>Exemplo:</strong> CPF 123.456.789-00 → ***.456.789-** ou [CPF MASCARADO]</p>
+                        <p><strong>Exemplo:</strong> Processo nº 0001234-56.2025.8.00.0000 → Processo nº *******-**.2025.8.00.0000</p>
+                    </div>
+                </li>
+                <li><strong>Generalização:</strong> Tornar as informações menos específicas, agrupando-as em categorias mais amplas.
+                    <div class="example">
+                        <p><strong>Exemplo:</strong> "Residente na Rua das Flores, nº 100" → "Residente em Área Urbana".</p>
+                        <p><strong>Exemplo:</strong> Idade "34 anos" → "Faixa etária 30-39 anos" ou "Adulto".</p>
+                        <p><strong>Exemplo:</strong> Data "15 de março de 2023" → "Primeiro trimestre de 2023" ou "Março de 2023".</p>
+                    </div>
+                </li>
+                <li><strong>Perturbação (com muita cautela):</strong> Adicionar "ruído" aos dados ou agregar dados de forma a obscurecer os valores individuais. Mais comum em datasets numéricos e requer técnicas estatísticas para não invalidar completamente os dados para análise. Geralmente não é a primeira escolha para textos jurídicos.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático Combinado:</p>
+                <p><strong>Original:</strong> "João da Silva, com 34 anos, natural de São Paulo, CPF 123.456.789-00, foi visto no local do crime em 20/01/2024."</p>
+                <p><strong>Anonimizado com Masking e Generalização:</strong> "Indivíduo A, adulto (faixa 30-39 anos), natural do estado de São Paulo, CPF [MASCARADO], foi visto no local do crime em janeiro de 2024."</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 4. Uso de Ferramentas Automatizadas e Revisão Humana</h3>
+            <ul>
+                <li><strong>Ferramentas de Processamento de Texto e Expressões Regulares (RegEx):</strong> Softwares como Microsoft Word, LibreOffice Writer, e editores de texto avançados possuem funções de busca e substituição que podem ser configuradas com expressões regulares para identificar e substituir padrões de dados pessoais (CPFs, datas, etc.).</li>
+                <li><strong>Scripts Automatizados:</strong> Linguagens como Python (com bibliotecas como `re` para expressões regulares, `spaCy` ou `NLTK` para processamento de linguagem natural) permitem desenvolver scripts que detectam e substituem/removem automaticamente informações sensíveis. Existem também ferramentas especializadas em anonimização de texto.</li>
+                <li><strong>IA para Anonimização (com cautela):</strong> Alguns modelos de IA podem ser treinados para identificar e sugerir anonimizações, mas <strong>NUNCA</strong> devem ser usados como a única etapa. A revisão humana é <strong>IMPRESCINDÍVEL</strong> devido ao risco de falhas (falsos negativos – não identificar um dado sensível, ou falsos positivos – remover informação útil desnecessariamente).</li>
+                <li><strong>Revisão Humana Dupla:</strong> Após a anonimização automatizada ou manual, é altamente recomendável que o documento seja revisado por pelo menos uma outra pessoa (ou duas, em um sistema de "quatro olhos") para garantir que nenhum dado pessoal identificável tenha permanecido e que o texto ainda faça sentido para o propósito desejado.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>✅ 5. Implementação de Boas Práticas e Políticas</h3>
+            <ul>
+                <li><strong>Checklist para Anonimização:</strong> Desenvolver um checklist detalhado com todos os tipos de dados a serem verificados e as ações a serem tomadas.
+                    <div class="example">
+                        <p class="example-title">Exemplo de Checklist (Simplificado):</p>
+                        <ul>
+                            <li>✅ Nomes completos de pessoas físicas removidos/substituídos?</li>
+                            <li>✅ CPFs, RGs e outros documentos de identificação removidos/mascarados?</li>
+                            <li>✅ Endereços completos removidos/generalizados?</li>
+                            <li>✅ Datas de nascimento completas removidas/generalizadas?</li>
+                            <li>✅ Números de telefone e e-mails removidos?</li>
+                            <li>✅ Números de processo (se aplicável) anonimizados?</li>
+                            <li>✅ Nomes de empresas (se identificarem pessoas) tratados?</li>
+                            <li>✅ Identificadores genéricos consistentes?</li>
+                            <li>✅ Revisão por um segundo profissional realizada?</li>
+                        </ul>
+                    </div>
+                </li>
+                <li><strong>Política de Anonimização:</strong> Definir uma política clara e documentada, com diretrizes, responsabilidades e procedimentos para todos os membros do Ministério Público que lidam com dados que necessitam de anonimização.</li>
+                <li><strong>Treinamento:</strong> Garantir que todos os profissionais envolvidos no tratamento de dados e no uso de ferramentas de IA recebam treinamento adequado sobre a importância da anonimização, as técnicas corretas e os riscos de uma anonimização inadequada.</li>
+                <li><strong>Avaliação de Risco de Reidentificação:</strong> Antes de considerar um conjunto de dados como "anonimizado", avaliar o risco de que os dados possam ser cruzados com outras fontes de informação para reidentificar indivíduos. Quanto mais dados únicos ou raros permanecerem, maior o risco.</li>
+                <li><strong>Minimização de Dados:</strong> Coletar e processar apenas os dados estritamente necessários para a finalidade pretendida, mesmo antes da anonimização.</li>
+            </ul>
+        </section>
+
+        <div class="warning">
+            <p class="warning-title">⚠️ Cuidado com a "Pseudonimização":</p>
+            <p>A pseudonimização substitui identificadores diretos por pseudônimos, mas mantém uma forma de reverter ao dado original (geralmente através de uma tabela de mapeamento mantida separadamente e de forma segura). Dados pseudonimizados ainda são considerados dados pessoais sob a LGPD se a reidentificação for possível. A anonimização genuína busca tornar a reidentificação impossível ou impraticável.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

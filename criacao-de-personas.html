@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Personas - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Criação de Personas</h2>
+        <p>A criação de personas é uma técnica poderosa para orientar o uso da IA generativa (como o GPT), garantindo que os textos e respostas produzidos sejam mais consistentes, direcionados e eficazes. Isso é especialmente útil em contextos institucionais, como o Ministério Público, onde diferentes usuários têm diferentes necessidades, expectativas e estilos de comunicação.</p>
+
+        <section>
+            <h3>🔍 O Que São Personas?</h3>
+            <ul>
+                <li>Persona é uma representação fictícia de um usuário ou profissional específico, com características, objetivos e contexto bem definidos.</li>
+                <li>As personas permitem que o modelo de IA gere textos mais adequados ao público e ao objetivo desejado, ajustando o tom, a linguagem e o estilo.</li>
+            </ul>
+            <h4>📌 Estrutura de uma Persona</h4>
+            <ol>
+                <li><strong>Nome e Função:</strong> Defina um nome e uma função para a persona.</li>
+                <li><strong>Objetivo:</strong> Especifique o que essa persona deseja alcançar.</li>
+                <li><strong>Público-Alvo:</strong> Determine para quem a persona está se comunicando.</li>
+                <li><strong>Estilo de Linguagem:</strong> Defina o tom e o estilo que a persona deve usar (formal, técnico, acessível, direto, entre outros).</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>🚀 Como Definir Personas na Prática?</h3>
+            <div class="example">
+                <p class="example-title">Exemplo 1: Promotor de Justiça Experiente</p>
+                <ul>
+                    <li><strong>Nome:</strong> Dr. João Almeida, Promotor de Justiça</li>
+                    <li><strong>Objetivo:</strong> Elaborar pareceres jurídicos bem fundamentados e formais.</li>
+                    <li><strong>Público-Alvo:</strong> Juízes e demais membros do Ministério Público.</li>
+                    <li><strong>Estilo de Linguagem:</strong> Formal, técnico, com citações legais e referências jurisprudenciais.</li>
+                </ul>
+                <p class="example-title">✅ Uso Prático:</p>
+                <ul>
+                    <li>Quando o GPT for solicitado a escrever um parecer, ele adotará uma linguagem formal e técnica.</li>
+                    <li><strong>Exemplo de Texto Gerado:</strong>
+                        <p>"Excelentíssimo Senhor Juiz de Direito,<br>
+                        Trata-se de ação penal em que o Ministério Público apresenta manifestação acerca da denúncia oferecida. Em análise dos autos, verifica-se que... (continua com linguagem técnica e referências jurídicas)."</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <p class="example-title">Exemplo 2: Analista Técnico do Ministério Público</p>
+                <ul>
+                    <li><strong>Nome:</strong> Maria Costa, Analista Técnico</li>
+                    <li><strong>Objetivo:</strong> Preparar relatórios técnicos claros e objetivos para suporte em processos.</li>
+                    <li><strong>Público-Alvo:</strong> Promotores de Justiça e Juízes.</li>
+                    <li><strong>Estilo de Linguagem:</strong> Objetivo, direto, com ênfase em dados e fatos.</li>
+                </ul>
+                <p class="example-title">✅ Uso Prático:</p>
+                <ul>
+                    <li>Ao solicitar a elaboração de um relatório, o GPT utilizará uma linguagem clara e focada em dados.</li>
+                    <li><strong>Exemplo de Texto Gerado:</strong>
+                        <p>"Relatório Técnico – Análise de Provas<br>
+                        Data: 10 de maio de 2025<br>
+                        Analisando o conteúdo dos autos, verificamos que os documentos apresentados demonstram claramente a movimentação financeira suspeita entre... (continua com linguagem objetiva e técnica)."</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>📝 Como Definir Personas no GPT</h3>
+            <p>Você pode definir personas diretamente ao solicitar um texto para o GPT. Veja como:</p>
+            <ol>
+                <li><strong>Definição Direta:</strong>
+                    <ul>
+                        <li>"Escreva um parecer como se fosse o Dr. João Almeida, Promotor de Justiça experiente."</li>
+                        <li>"Gere um relatório técnico claro e objetivo como Maria Costa, Analista Técnico."</li>
+                    </ul>
+                </li>
+                <li><strong>Uso de Personas Pré-Definidas:</strong>
+                    <ul>
+                        <li>Ao criar uma cartilha, um manual ou qualquer documento padrão, já inclua uma seção com a descrição das personas que serão utilizadas.</li>
+                        <li><strong>Exemplo:</strong>
+                            <ul>
+                                <li>Persona: Promotor de Justiça Experiente</li>
+                                <li>Persona: Analista Técnico</li>
+                                <li>Persona: Secretário do Ministério Público, com linguagem acessível para o público geral.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>🎯 Outros Exemplos Práticos</h3>
+            <ul>
+                <li><strong>Persona: Advogado de Defesa Júnior</strong>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Defender os interesses do cliente de maneira clara e fundamentada.</li>
+                        <li><strong>Público-Alvo:</strong> Juízes e Promotores.</li>
+                        <li><strong>Estilo:</strong> Formal, porém direto, com argumentação lógica.</li>
+                    </ul>
+                </li>
+                <li><strong>Persona: Comunicador do Ministério Público</strong>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Esclarecer à população temas jurídicos de maneira acessível.</li>
+                        <li><strong>Público-Alvo:</strong> Cidadãos comuns.</li>
+                        <li><strong>Estilo:</strong> Simples, educativo, com linguagem clara e acessível.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>🚦 Por Que Isso É Importante?</h3>
+            <ul>
+                <li><strong>Coerência:</strong> O texto gerado mantém uma linguagem consistente com o público e objetivo.</li>
+                <li><strong>Profissionalismo:</strong> Textos de pareceres jurídicos, por exemplo, mantêm o rigor técnico necessário.</li>
+                <li><strong>Clareza:</strong> Em textos para o público em geral, o GPT usa uma linguagem acessível e sem jargões.</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

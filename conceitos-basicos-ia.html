@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos Básicos de IA Generativa - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Conceitos Básicos utilizados com IA Generativa</h2>
+
+        <section>
+            <h3>🧠 Modelo</h3>
+            <p>Um modelo de IA generativa é uma estrutura matemática treinada para prever a próxima palavra ou token com base em um contexto. Ele aprende com grandes volumes de texto (livros, sites, artigos) e "generaliza" padrões de linguagem.</p>
+            <p>Pense nele como um "motor" que transforma texto de entrada (prompt) em uma saída previsível e coerente.</p>
+            <div class="example">
+                <p class="example-title">Exemplo:</p>
+                <p>GPT-4 é um modelo que pode responder perguntas, escrever textos, traduzir idiomas, etc.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>💬 Prompt</h3>
+            <p>É o texto que você envia à IA para gerar uma resposta. Pode ser uma pergunta, uma instrução ou até um documento inteiro. A qualidade e clareza do prompt influenciam diretamente a resposta gerada.</p>
+            <p>O prompt é como dar um comando ao chef de cozinha: quanto mais claro o pedido, melhor o prato.</p>
+            <div class="example">
+                <p class="example-title">Exemplo:</p>
+                <p><strong>Prompt ruim:</strong> “Explique coisa.”</p>
+                <p><strong>Prompt bom:</strong> “Explique em 3 parágrafos simples o que é o STF e qual sua função no Brasil.”</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>🧩 Token</h3>
+            <p>Tokens são as menores unidades de texto que a IA processa — não exatamente palavras, mas pedaços delas. A IA não pensa em frases como humanos, mas em sequências de tokens.</p>
+            <p>Nossa língua escrita tem 26 caracteres, são a menor partícula de informação que ela comporta. Para expressar conceitos e ideias, é necessário ir combinando esses pequenos pedaços de informação. Então, ela poderia ser equivalente a uma forma de tokenização.</p>
+            <p>De outro lado, outras escritas trazem ideogramas que são a menor partícula e que conseguem, sozinhos, representar conceitos, sem a necessidade de tantas combinações.</p>
+            <p>Modelos mais avançados, como formas de escrita mais complexas, precisam de menos tokens para funcionar, assim como um livro escrito em ideogramas teria menos páginas.</p>
+            <p>Isso influi em vários aspectos: desempenho, velocidade e, principalmente, no uso da janela de contexto.</p>
+            <div class="example">
+                <p class="example-title">Exemplo:</p>
+                <p>A frase “João é promotor.” tem 5 palavras, mas pode ter 7 tokens (Ex: "Jo", "ão", " ", "é", " ", "promotor", ".").</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>📦 Janela de contexto (ou janela de tokens)</h3>
+            <p>É o limite de memória do modelo por interação. A IA pode "lembrar" apenas os tokens que cabem nessa janela. Tudo o que passar do limite (como início de uma conversa longa) é descartado.</p>
+            <div class="example">
+                <p class="example-title">Exemplo:</p>
+                <ul>
+                    <li>GPT-3.5 tem janela de 4.096 tokens;</li>
+                    <li>GPT-4-turbo pode chegar a 128.000 tokens;</li>
+                    <li>Gemini 1.5 Pro tem uma janela de até 1.000.000 de tokens (e versões experimentais com mais).</li>
+                </ul>
+                <p>Na prática, isso significa que o GPT-4-turbo lida com mais informação que o GPT-3.5; e que o Gemini 1.5 Pro lida com mais informação que ambos.</p>
+                <p>Isso é importante porque se todo o conteúdo de um processo extenso for passado para o modelo, ele pode descartar as primeiras informações e tentar inferi-las por “adivinhação”, se for questionado quanto a elas.</p>
+                <p>Os modelos costumam ter diferentes limites para janelas de entrada (a informação que recebe) e de saída (a informação que produz).</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>🧠 Contexto</h3>
+            <p>É o conjunto de informações que o modelo usa para gerar uma resposta coerente: inclui o prompt atual, mensagens anteriores (se couberem na janela), e instruções internas.</p>
+            <div class="example">
+                <p class="example-title">Exemplo:</p>
+                <p>Se você pedir “Continue a história” sem mostrar o começo, o modelo não tem contexto suficiente. Se mostrar os parágrafos anteriores, ele continua corretamente.</p>
+            </div>
+            <p><strong>Comparação:</strong> O contexto é como o “clima da conversa”. Sem saber o que veio antes, a IA pode se perder ou gerar respostas desconectadas.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

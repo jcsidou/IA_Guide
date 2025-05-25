@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Construir Prompts - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">Conceitos Básicos</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">O Que NÃO É IA Generativa</a></li>
+            <li><a href="o-que-e-ia-generativa.html">O Que É IA Generativa</a></li>
+            <li><a href="politicas-de-privacidade.html">Políticas de Privacidade</a></li>
+            <li><a href="criacao-de-personas.html">Criação de Personas</a></li>
+            <li><a href="como-construir-prompts.html">Como Construir Prompts</a></li>
+            <li><a href="exemplos-de-prompts.html">Exemplos de Prompts</a></li>
+            <li><a href="como-usar-apis.html">Como Usar APIs</a></li>
+            <li><a href="anonimizacao-de-pecas.html">Anonimização de Peças</a></li>
+            <li><a href="cuidados-praticos.html">Cuidados Práticos</a></li>
+            <li><a href="como-customizar-modelos.html">Como Customizar Modelos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Como Construir um Prompt</h2>
+        <p>Um prompt é a instrução que você fornece ao GPT para que ele gere uma resposta. A forma como você constrói esse prompt determina diretamente a qualidade e a precisão da resposta obtida.</p>
+
+        <section>
+            <h3>✅ 1. Definição Clara do Comando</h3>
+            <ul>
+                <li>Inicie o prompt com um verbo de ação, indicando exatamente o que você deseja que o GPT faça.</li>
+                <li><strong>Exemplos de comandos:</strong>
+                    <ul>
+                        <li>"Analise" - para obter uma interpretação crítica ou técnica de um texto.</li>
+                        <li>"Resuma" - para obter uma versão reduzida e clara do conteúdo.</li>
+                        <li>"Elabore" - para desenvolver um texto completo e detalhado.</li>
+                        <li>"Explique" - para tornar um conceito mais claro.</li>
+                        <li>"Liste" - para apresentar informações em formato de lista.</li>
+                        <li>"Crie" - para gerar algo novo, como um rascunho de documento.</li>
+                        <li>"Traduza" - para converter texto de um idioma para outro.</li>
+                        <li>"Compare" - para identificar semelhanças e diferenças entre itens.</li>
+                        <li>"Sugira" - para obter ideias ou recomendações.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático:</p>
+                <p><strong>Prompt:</strong> "Analise o artigo 5º da Constituição Federal, destacando os principais direitos fundamentais garantidos."</p>
+                <p><strong>Resultado:</strong> O GPT apresentará uma análise clara e técnica do artigo solicitado.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 2. Fornecer Contexto, Conteúdo e Estilo Desejado</h3>
+            <ul>
+                <li><strong>Contexto:</strong> Indique o cenário em que o texto será utilizado (parecer jurídico, relatório técnico, comunicado institucional, e-mail para colega).</li>
+                <li><strong>Conteúdo:</strong> Especifique o tema ou a matéria a ser abordada (ex: "o conceito de dolo eventual", "os fatos do caso X", "as implicações da nova lei Y").</li>
+                <li><strong>Estilo:</strong> Defina o tom da resposta (formal, técnico, acessível, persuasivo, conciso, detalhado). Você pode também indicar o público-alvo.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Prático:</p>
+                <p><strong>Prompt:</strong> "Elabore um parecer jurídico, em linguagem técnica e formal, explicando o conceito de presunção de paternidade no direito civil brasileiro, com base no artigo 1.597 do Código Civil."</p>
+                <p><strong>Resultado:</strong> O GPT gerará um texto estruturado como um parecer jurídico, com linguagem técnica e referências legais.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 3. Utilizar Delimitadores para Organizar Informações</h3>
+            <p>Os delimitadores são sinais que você pode usar para organizar o conteúdo do prompt, facilitando a compreensão e execução da tarefa pelo GPT. Eles são úteis para separar diferentes partes da instrução ou para indicar textos específicos que devem ser processados.</p>
+            <p><strong>Exemplos de Delimitadores:</strong></p>
+            <ul>
+                <li><strong>Aspas (" "):</strong> Para destacar o texto que deve ser reproduzido, focado ou sobre o qual a ação deve ser realizada.
+                    <div class="example">
+                        <p><strong>Exemplo:</strong> "Explique o conceito de 'presunção de paternidade'."</p>
+                        <p><strong>Exemplo:</strong> "Resuma o seguinte texto: '...' "</p>
+                    </div>
+                </li>
+                <li><strong>Parênteses ( ):</strong> Para adicionar instruções complementares ou especificar detalhes.
+                    <div class="example">
+                        <p><strong>Exemplo:</strong> "Elabore um parecer jurídico sobre o artigo 5º da Constituição (linguagem técnica, com referências legais)."</p>
+                    </div>
+                </li>
+                <li><strong>Três Aspas ("""..."""):</strong> Para separar trechos longos de texto, como documentos ou artigos a serem analisados, ou para fornecer exemplos específicos de formato de saída.
+                    <div class="example">
+                        <p><strong>Exemplo:</strong></p>
+                        <p>Prompt: """Analise o seguinte trecho de decisão judicial e identifique os principais argumentos da defesa: [colar trecho aqui]"""</p>
+                        <p>Prompt: """Gere um resumo do texto abaixo no formato de tópicos:
+                        Texto: [colar texto longo aqui]
+                        Formato de saída esperado:
+                        - Tópico 1
+                        - Tópico 2
+                        """</p>
+                    </div>
+                </li>
+                <li><strong>Sinais de Ponto e Vírgula (;):</strong> Para separar tópicos de uma lista de instruções ou perguntas.
+                    <div class="example">
+                        <p><strong>Exemplo:</strong> "Liste as principais funções de um Promotor de Justiça; Explique o conceito de parecer jurídico; Forneça um exemplo prático de aplicação do princípio da insignificância."</p>
+                    </div>
+                </li>
+                 <li><strong>Tags XML/HTML (ex: &lt;texto&gt;...&lt;/texto&gt;):</strong> Para delimitar claramente seções específicas do prompt, especialmente quando se fornece um texto base para análise.
+                    <div class="example">
+                        <p><strong>Exemplo:</strong> "Analise o seguinte documento e extraia as datas mencionadas: &lt;documento&gt;[colar o documento aqui]&lt;/documento&gt;"</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>✅ 4. Estrutura Padrão de um Prompt Bem Definido</h3>
+            <p>Para garantir a eficiência do GPT, você pode seguir esta estrutura:</p>
+            <ul>
+                <li><strong>Comando Claro:</strong> O que você quer que o GPT faça (analise, resuma, elabore, crie, liste).</li>
+                <li><strong>Persona (Opcional, mas recomendado):</strong> "Aja como um [cargo/especialista]..."</li>
+                <li><strong>Contexto:</strong> Em que contexto o texto será utilizado ou a informação é necessária.</li>
+                <li><strong>Conteúdo/Texto de Entrada:</strong> Qual é o tema específico ou o texto a ser processado. Use delimitadores para textos longos.</li>
+                <li><strong>Formato de Saída (Opcional):</strong> Como a resposta deve ser estruturada (tópicos, parágrafos, tabela).</li>
+                <li><strong>Estilo/Tom:</strong> Como deve ser o tom e a linguagem (formal, informal, técnico, acessível).</li>
+                <li><strong>Restrições/Instruções Adicionais (Opcional):</strong> Limite de palavras, informações a serem evitadas, etc.</li>
+            </ul>
+            <div class="example">
+                <p class="example-title">✅ Exemplo Completo:</p>
+                <p><strong>Prompt:</strong> "Aja como um promotor de justiça experiente. Elabore um parecer jurídico (linguagem técnica e formal, em aproximadamente 500 palavras) explicando o conceito de presunção de paternidade no direito civil brasileiro, com base no artigo 1.597 do Código Civil. Apresente a resposta em parágrafos bem estruturados."</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>✅ 5. Iteração e Refinamento</h3>
+            <p>Nem sempre o primeiro prompt gerará a resposta perfeita. Esteja preparado para:</p>
+            <ul>
+                <li><strong>Refinar o prompt:</strong> Se a resposta não for satisfatória, adicione mais detalhes, clareza ou restrinja o escopo.</li>
+                <li><strong>Pedir esclarecimentos:</strong> Se a IA gerar algo ambíguo, peça para ela explicar ou detalhar.</li>
+                <li><strong>Fornecer exemplos (Few-shot prompting):</strong> Para tarefas mais complexas ou formatos específicos, fornecer um ou dois exemplos de entrada e saída desejada pode melhorar significativamente o resultado.
+                    <div class="example">
+                        <p class="example-title">Exemplo de Few-shot Prompting:</p>
+                        <p>Prompt: "Traduza as seguintes frases jurídicas para um linguajar simples e acessível ao cidadão comum:</p>
+                        <p>Exemplo 1:<br>
+                        Jurídico: 'O réu foi absolvido por insuficiência probatória.'<br>
+                        Simples: 'O acusado foi considerado inocente porque não havia provas suficientes contra ele.'</p>
+                        <p>Exemplo 2:<br>
+                        Jurídico: 'Interpôs recurso de apelação visando a reforma da sentença.'<br>
+                        Simples: 'Ele pediu para uma instância superior revisar a decisão do juiz, esperando que ela fosse mudada.'</p>
+                        <p>Agora, traduza:<br>
+                        Jurídico: 'A exordial acusatória imputa ao denunciado a prática do delito capitulado no art. 157 do Código Penal.'"</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>✅ 6. Erros Comuns ao Construir Prompts e Como Corrigi-los</h3>
+            <ol>
+                <li><strong>Prompt Vago:</strong> "Explique a Constituição." (Sem foco específico)
+                    <div class="allowed">
+                        <p class="allowed-title">✅ Corrigido:</p> "Explique os direitos fundamentais do artigo 5º da Constituição Federal, focando nos incisos que tratam da liberdade de expressão."
+                    </div>
+                </li>
+                <li><strong>Falta de Contexto:</strong> "Elabore um texto sobre crimes." (Ambíguo)
+                    <div class="allowed">
+                        <p class="allowed-title">✅ Corrigido:</p> "Elabore um resumo para um estudante de direito (linguagem técnica, mas didática) explicando o conceito de crimes contra a administração pública, citando três exemplos."
+                    </div>
+                </li>
+                <li><strong>Falta de Estilo Definido:</strong> "Escreva sobre direitos das vítimas." (Não especifica o tom ou público)
+                    <div class="allowed">
+                        <p class="allowed-title">✅ Corrigido:</p> "Escreva uma cartilha explicativa (linguagem clara e acessível, evitando jargões jurídicos) sobre os principais direitos das vítimas em processos criminais, destinada ao público leigo."
+                    </div>
+                </li>
+                <li><strong>Instruções Contraditórias ou Ambíguas:</strong> "Resuma este texto de 10 páginas em um parágrafo, mas inclua todos os detalhes importantes."
+                     <div class="allowed">
+                        <p class="allowed-title">✅ Corrigido:</p> "Resuma os pontos chave deste texto de 10 páginas em um parágrafo conciso (aproximadamente 100 palavras)." Ou "Extraia os 5 detalhes mais importantes deste texto de 10 páginas."
+                    </div>
+                </li>
+                 <li><strong>Não especificar o formato de saída:</strong> "Liste os prós e contras da mediação." (Pode vir em texto corrido)
+                     <div class="allowed">
+                        <p class="allowed-title">✅ Corrigido:</p> "Apresente os prós e contras da mediação em formato de tabela com duas colunas: 'Prós' e 'Contras'."
+                    </div>
+                </li>
+            </ol>
+            <p>Para mais exemplos práticos, visite a seção <a href="exemplos-de-prompts.html">Exemplos de Prompts</a>.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ministério Público. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
