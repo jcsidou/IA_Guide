@@ -28,7 +28,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     text-align: center;
-    /* background-color: #004080; */ /* Cor de fundo removida */
+    background-color: #004080; /* Cor de fundo removida */
     margin: 0;
 }
 
@@ -139,8 +139,8 @@ code {
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background-color: #003366;
     color: #fff;
-    margin-top: 20px;
+    margin-top: 10px;
 }
