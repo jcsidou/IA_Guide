@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Navegação - Guia MP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header sempre presente -->
+    <header>
+        <h1>Guia de Boas Práticas para o Uso de IA Generativa nos Ministérios Públicos</h1>
+        <div class="header-quick-nav">
+            <a href="index.html" title="Voltar ao início">🏠 Início</a>
+            <a href="conceitos-basicos-ia.html" title="Conceitos básicos">📚 Conceitos</a>
+            <a href="models.html" title="Modelos de IA">🔧 Modelos</a>
+            <a href="ferramentas.html" title="Ferramentas">🛠️ Ferramentas</a>
+            <a href="cuidados-praticos.html" title="Cuidados práticos">⚠️ Cuidados</a>
+        </div>
+    </header>
+
+    <!-- Navegação sempre presente -->
+    <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul id="main-nav-ul">
+            <li><a href="index.html">🏠 Início</a></li>
+            <li><a href="conceitos-basicos-ia.html">📚 Conceitos Básicos</a></li>
+            <li><a href="o-que-e-ia-generativa.html">🤖 O Que É IA Generativa</a></li>
+            <li><a href="o-que-nao-e-ia-generativa.html">❌ O Que NÃO É IA Generativa</a></li>
+            <li><a href="models.html">🔧 Principais Modelos de LLM</a></li>
+            <li><a href="ferramentas.html">🛠️ Principais Ferramentas</a></li>
+            <li><a href="politicas-de-privacidade.html">🔒 Políticas de Privacidade</a></li>
+            <li><a href="anonimizacao-de-pecas.html">🎭 Anonimização de Peças</a></li>
+            <li><a href="como-construir-prompts.html">✍️ Como Construir Prompts</a></li>
+            <li><a href="melhores-tecnicas-prompt.html">⭐ Melhores Técnicas de Prompt</a></li>
+            <li><a href="criacao-de-personas.html">👤 Criação de Personas</a></li>
+            <li><a href="exemplos-de-prompts.html">💡 Exemplos de Prompts</a></li>
+            <li><a href="cuidados-praticos.html">⚠️ Cuidados Práticos</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Teste de Navegação</h2>
+        <p>Esta é uma página de teste para verificar se a navegação está funcionando corretamente.</p>
+        
+        <div class="example">
+            <p class="example-title">Instruções de Teste:</p>
+            <ol>
+                <li>Clique nos botões de navegação rápida no header (abaixo do título)</li>
+                <li>Teste o menu hamburguer (☰) em dispositivos móveis</li>
+                <li>Verifique se não há duplicação de menus</li>
+                <li>Confirme se todos os links funcionam</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <p class="warning-title">Status dos Links:</p>
+            <p>Se você consegue ver esta página e os links do header funcionam, a navegação foi corrigida!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ministério Público - Guia de IA Generativa</p>
+    </footer>
+
+    <script>
+        // Script simplificado para menu hamburguer
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    nav.classList.toggle('menu-active');
+                    
+                    if (nav.classList.contains('menu-active')) {
+                        this.innerHTML = '✕';
+                        this.style.transform = 'translateY(-50%) rotate(180deg)';
+                    } else {
+                        this.innerHTML = '☰';
+                        this.style.transform = 'translateY(-50%) rotate(0deg)';
+                    }
+                });
+                
+                // Fechar menu ao clicar em links
+                const navLinks = document.querySelectorAll('nav ul li a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        nav.classList.remove('menu-active');
+                        menuToggle.innerHTML = '☰';
+                        menuToggle.style.transform = 'translateY(-50%) rotate(0deg)';
+                    });
+                });
+            }
+
+            // Verificar links do header
+            const headerLinks = document.querySelectorAll('.header-quick-nav a');
+            console.log('Links encontrados no header:', headerLinks.length);
+            
+            headerLinks.forEach((link, index) => {
+                console.log(`Link ${index + 1}: ${link.href}`);
+                
+                // Adicionar evento de clique explícito se necessário
+                link.addEventListener('click', function(e) {
+                    console.log('Link clicado:', this.href);
+                    // O comportamento padrão do link deve funcionar
+                });
+            });
+        });
+    </script>
+</body>
+</html>
